@@ -1,0 +1,35 @@
+.containerWrapper {
+  margin: 120px 0 0 0;
+  .title {
+    p {
+      font-size: 22px;
+      font-family: revert;
+      margin: 100px 0 0 0;
+    }
+    span {
+      font-size: 11px;
+      font-weight: 100;
+    }
+  }
+  .imageWrapper {
+    // display: inline-block;
+    #img1 {
+      width: 250px;
+      height: 250px;
+      box-shadow: 0 0px 62px 0;
+      display: flex;
+      margin: 0 0 40px 150px;
+      border-bottom: 10px solid darkgoldenrod;
+      border-right: 10px solid darkgoldenrod;
+    }
+    #img2 {
+      width: 250px;
+      height: 250px;
+      box-shadow: 0 0px 62px 0;
+      display: flex;
+      margin: 100px 0 -62px 30px;
+      border-bottom: 10px solid darkgoldenrod;
+      border-right: 10px solid darkgoldenrod;
+    }
+  }
+}
