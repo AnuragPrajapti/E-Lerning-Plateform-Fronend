@@ -4,14 +4,14 @@ const ProfileConstructor = () => {
   return (
     <div className="smart-profile">
       <Container>
-        <Row>
+        <Row >
           <Col lg={12} className="profile-heading" id="profile" >
             <b>
               Connect With Constructor
               <br /> Community
             </b>
           </Col>
-          <Row>
+          <Row className="justify-content-center d-flex" >
           <Col lg={4} sm={4} md={3} className="profile-title">
             <span>Smart Profile</span>
             <p>
