@@ -42,6 +42,8 @@ export const getAdminData: any = createAsyncThunk(
   }
 )
 
+console.log(11111,process.env.REACT_APP_API_KEY);
+
 export const getAdminProfile : any = createAsyncThunk(
   'auth/getAdminProfile',
   async (thunkApi : any) => {

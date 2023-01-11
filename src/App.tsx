@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from './components/signUp/signup';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from './modules/dashboard/dashboard';
 import Signin from './components/signIn/signin';
 import CommonNavbar from './common/navbar/navbar';
 import HomeIndex from './components/home/homeIndex';
@@ -26,7 +25,6 @@ const App = () => {
         <Route path='/message' element={<Messages />} />
         <Route path='/signin' element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path='/user_details' element={<UserDetails/>} />
         <Route path='admin_index' element={<PrivateRoutes isLogged={<AdminIndex />} />} >
             <Route path="/admin_index" element={<AdminProfile /> } />

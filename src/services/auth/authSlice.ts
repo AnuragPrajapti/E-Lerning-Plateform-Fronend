@@ -6,7 +6,8 @@ import { IinitialState, IRegister } from "../../interface/interface";
 
 export const getRegisterUser = createAsyncThunk(
   "auth/getRegisterUser",
-  async (data: IRegister, { fulfillWithValue , rejectWithValue } ) => {
+  async (data : IRegister, { fulfillWithValue , rejectWithValue } ) => {
+    console.log(111,data);
     var formData = new FormData()
     formData.append('image', data?.image[0]);
     formData.append('firstName', data?.firstName);

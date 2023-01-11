@@ -21,7 +21,7 @@ const AdminProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
 
 
-  useEffect(() => { 
+  useEffect(() => {
     dispatch(getAdminData());
   }, [])
 
@@ -38,7 +38,7 @@ const AdminProfile = () => {
         autoClose: 1500,
       })
     }
-  }, [getAdminMessage , getErrorAdminMessage ])
+  }, [getAdminMessage, getErrorAdminMessage])
 
   useEffect(() => {
     if (adminInfo) {
