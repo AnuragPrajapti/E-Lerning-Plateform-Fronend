@@ -11,4 +11,9 @@
         width: 1080px;
         align-items: center;
     }
+    @media screen and (max-width : 992px ) {
+        .accordion-contant{
+            margin: 0 auto !important;
+        }
+    }
 }
