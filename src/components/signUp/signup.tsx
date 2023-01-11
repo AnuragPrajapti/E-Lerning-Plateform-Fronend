@@ -7,7 +7,7 @@ import './signup.scss'
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import Form from "react-bootstrap/Form";
 import { NavLink, useNavigate } from "react-router-dom";
-import img from '../../assets/signup/sign-up-img.jpg';
+import img from '../../assets/signup/leftsideimg.jpg';
 import { useAppDispatch, useAppSelector } from "../../services/useTypeSelector";
 import { getRegisterUser } from "../../services/auth/authSlice";
 import { toast } from "react-toastify"
@@ -105,7 +105,7 @@ const Signup = () => {
               {
                 loader ? <Spinner animation="border" /> : <button className='btn'>{isLastStep ? "Register" : "Next"}</button>
               }
-              <p className='mt-3'>Alredy Have an Accout?<span><NavLink to="/signin" >Login</NavLink></span> </p>
+              <p className='mt-3'>Alredy Have an Accout ? <span><NavLink to="/signin" > Login</NavLink></span> </p>
             </Form>
           </Col>
         </Row>
