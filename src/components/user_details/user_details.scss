@@ -1,0 +1,117 @@
+.user-datails {
+    background-image: url('../../assets/user-profile/background-image-user-profile.jpg');
+    background-repeat: no-repeat;
+    display: flex;
+    background-size: cover;
+    height: 100vh;
+    // width: 100vw;
+
+    p {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 100;
+        letter-spacing: .2rem;
+        font-family: serif;
+        border-bottom: 2px solid #aecee9;
+        margin-top: 120px;
+    }
+
+    .logut-btn {
+        Button {
+            // border-radius: 0px !important;
+            background-color: transparent;
+            color: red;
+
+            #icon {
+                font-size: 32px;
+                margin: 0 5px 0 0;
+                color: red;
+            }
+        }
+    }
+
+    .user-details-show-only {
+        border: 1px solid #7eaed7;
+
+        Button {
+            border-radius: 0px !important;
+            margin: 0 0 0 82px;
+        }
+
+        img {
+            border-radius: 100%;
+            display: block;
+            width: 250px;
+            padding: 25px;
+            margin: 40px;
+        }
+
+        ul {
+
+            span {
+                font-weight: 600;
+                margin-right: 20px;
+                width: 40%;
+                display: inline-block;
+            }
+
+            li {
+                display: flex;
+                margin: 20px;
+                font-family: auto;
+                width: 60%;
+                display: inline-block;
+            }
+        }
+
+    }
+
+    .user-profile-form {
+
+
+
+        img {
+            border-radius: 100%;
+            display: block;
+            width: 250px;
+            padding: 25px;
+            margin: 40px;
+        }
+
+        .select_Option {
+            display: flex;
+            padding: 10px;
+            border: 1px solid#a7cdd3;
+            margin-top: 35px;
+            display: flex;
+            width: 270px;
+            border-radius: 0px !important;
+        }
+
+        input {
+            display: flex;
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            background: no-repeat;
+            // color: white;
+            border: none;
+            padding: 10px;
+            border: 1px solid#a7cdd3;
+            margin-top: 35px;
+            display: flex;
+        }
+
+        .profile-name {
+            margin-top: 100px;
+        }
+
+        .handle-input-button {
+            Button {
+                border-radius: 0px !important;
+                margin: 15px;
+            }
+        }
+    }
+}

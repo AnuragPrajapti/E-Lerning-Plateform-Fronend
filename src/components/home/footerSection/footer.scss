@@ -1,0 +1,37 @@
+.footer-contant {
+    background-color: #393042;
+    margin-top: 100px;
+    margin-bottom: 50px !important;
+    border-radius: 40px;
+    color: white;
+
+    .imgae-title {
+        padding: 20px 0 0 60px;
+        img {
+            margin-left: 40px;
+            width: 80px;
+        }
+        p {
+            letter-spacing: 0.1rem;
+            font-family: fantasy;
+        }
+    }
+
+    ul {
+        display: block;
+        padding: 20px 0 0 0;
+        li {
+            display: block;
+            font-family: fantasy;
+            font-weight: 100;
+            line-height: 40px;
+        }
+    }
+    .copy-right {
+        p {
+            text-align: center;
+            letter-spacing: 0.1rem;
+            font-family: fantasy;
+        }
+    }
+}

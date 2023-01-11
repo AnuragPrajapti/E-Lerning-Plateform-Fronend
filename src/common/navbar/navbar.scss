@@ -1,0 +1,25 @@
+.navbaar-wrapper {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(10, 55, 97, 0) 0%,
+    rgba(10, 55, 97, 0.78) 0.01%,
+    #0a3761 100%
+  );
+  img, svg{
+    vertical-align: middle;
+    width: 60px;
+    margin: 0 -390px 0 0;
+    float: left;
+  }
+  span {
+    color: aliceblue;
+    letter-spacing: 5px;
+  }
+  .common-navbar {
+    a {
+      color: white;
+      margin: 20px;
+      border-bottom: none !important;
+    }
+  }
+}

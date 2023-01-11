@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Home",
+        "path": "/"
+    },
+    {
+        "title": "Forms",
+        "path": "/form"
+    },
+    {
+        "title": "task",
+        "path": "/tasks"
+    },
+    {
+        "title": "Chats",
+        "path": "/chats"
+    },
+    {
+        "title": "Analytics",
+        "path": "/analytics"
+    }
+]

@@ -1,0 +1,36 @@
+.home-page-wrapper {
+  height: 85vh;
+  background-color: #174570;
+
+  .left-pera-content {
+    .pera-heading {
+      color: white;
+      font-size: 38px;
+      font-weight: 600;
+      margin: 100px 0 0 0;
+      letter-spacing: 2px;
+
+      span {
+        color: darkgoldenrod;
+      }
+    }
+
+    .pera-titile {
+      color: white;
+      margin: 20px 0 0 0;
+    }
+
+    Button {
+      background-color: darkgoldenrod;
+      border-color: darkgoldenrod !important;
+      border-radius: 10px;
+      margin: 50px 0 0 0;
+    }
+
+    img {
+      display: flex;
+      position: absolute;
+      height: 85%;
+    }
+  }
+}
