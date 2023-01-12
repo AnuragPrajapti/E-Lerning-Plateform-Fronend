@@ -1,5 +1,4 @@
 .home-page-wrapper {
-  height: 85vh;
   background-color: #174570;
 
   .left-pera-content {
@@ -9,7 +8,6 @@
       font-weight: 600;
       margin: 100px 0 0 0;
       letter-spacing: 2px;
-
       span {
         color: darkgoldenrod;
       }
@@ -24,13 +22,7 @@
       background-color: darkgoldenrod;
       border-color: darkgoldenrod !important;
       border-radius: 10px;
-      margin: 50px 0 0 0;
-    }
-
-    img {
-      display: flex;
-      position: absolute;
-      height: 85%;
+      margin: 50px 0 70px 0;
     }
   }
 }
