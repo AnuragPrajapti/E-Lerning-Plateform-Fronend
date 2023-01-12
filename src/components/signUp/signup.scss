@@ -2,15 +2,15 @@
   background-image: url("../../assets/signup/loginBackground.jpg");
   display: flex;
   background-size: cover;
-  padding: 0px 0px 75px 0px;
   background-repeat: no-repeat;
 
   .register {
     color: white;
-    margin-top: 100px;
-
+    padding: 30px 0px;
     input {
       background-color: transparent;
+      color:#fff;
+      width: 100%;
     }
 
     .register-form {
@@ -31,9 +31,10 @@
       }
 
       #form {
-        max-width: 320px;
-        width: 100vw;
+        // max-width: 320px;
+        width: 100%;
         margin: 2em auto;
+        padding: 0px 18px;
       }
 
       #form>input,
@@ -49,11 +50,14 @@
         input,
         .btn {
           border: 1px solid #e9ecef;
-          padding: 0.9em 1em;
-          width: 320px;
+          // padding: 0.9em 1em;
+          // width: 320px;
           display: block;
         }
-
+        .iconStyle{
+          position: absolute;
+          top:5px;
+        }
         input:focus {
           outline: none;
         }
@@ -67,21 +71,37 @@
 
       Select {
         border: 1px solid #e9ecef;
-        padding: 0.9em 1em;
-        width: 320px;
+        // padding: 0.9em 1em;
+        // width: 320px;
       }
 
       #form>input:focus {
         outline: none;
       }
-
-      #form>.btn {
-        background-color: #003049;
+      
+        #form>.btn {
+        background-color: #003049 !important;
         color: #e9ecef;
         font-size: 1em;
         cursor: pointer;
+        padding: 6px 15px;
+        width: 220px;
       }
-
+      .nxt-btn ,.prev-btn{
+        text-align: center;
+        .btn{
+          background-color: #003049;
+          color: #e9ecef;
+          font-size: 1em;
+          cursor: pointer;
+          padding: 6px 15px;
+          width: 220px;
+          transition: .5s;
+          &:hover{
+            background-color: #ec6100;
+          }
+        }
+      }
       .flex {
         display: flex;
         gap: 1em;
@@ -99,7 +119,18 @@
       border-bottom-right-radius: 5px;
       display: flex;
     }
-
+    .quotes{
+      text-align: center;
+      letter-spacing: 1.9px;
+      a{
+        text-decoration: none;
+        color: #ec6100;
+        transition: .4s;
+        &:hover{
+          color:#5e97c8;
+        }
+      }
+    }
     @media screen and (max-width: 767px) {
       .registerImage {
         display: none;

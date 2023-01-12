@@ -7,7 +7,7 @@ import './signup.scss'
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import Form from "react-bootstrap/Form";
 import { NavLink, useNavigate } from "react-router-dom";
-import img from '../../assets/signup/leftsideimg.jpg';
+import img from '../../assets/signup/signup.jpg';
 import { useAppDispatch, useAppSelector } from "../../services/useTypeSelector";
 import { getRegisterUser } from "../../services/auth/authSlice";
 import { toast } from "react-toastify"
@@ -98,14 +98,17 @@ const Signup = () => {
               {step}
 
               {!isFirstStep && (
+                <div className="prev-btn">
                 <button type="submit" className='btn' onClick={back}>
                   Back
                 </button>
+                </div>
               )}
               {
-                loader ? <Spinner animation="border" /> : <button className='btn'>{isLastStep ? "Register" : "Next"}</button>
+                loader ? <Spinner animation="border" /> : 
+                <div className="nxt-btn"><button className='btn'>{isLastStep ? "Register" : "Next"}</button></div>
               }
-              <p className='mt-3'>Alredy Have an Accout ? <span><NavLink to="/signin" > Login</NavLink></span> </p>
+              <p className='mt-3 quotes'>Alredy Have an Accout ? <span><NavLink to="/signin" > Login...</NavLink></span> </p>
             </Form>
           </Col>
         </Row>
