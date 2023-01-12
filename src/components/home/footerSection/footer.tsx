@@ -13,26 +13,26 @@ const Footer = () => {
 
                     </Col>
                     <Col>
-                     <ul>
-                        <li>V-Plan</li>
-                        <li>204,908 Dundas Street East,</li>
-                        <li>Mississaugam, ON L4Y4H9</li>
-                        <li>Canada</li>
-                     </ul>
+                        <ul>
+                            <li>V-Plan</li>
+                            <li>204,908 Dundas Street East,</li>
+                            <li>Mississaugam, ON L4Y4H9</li>
+                            <li>Canada</li>
+                        </ul>
                     </Col>
                     <Col>
-                      <ul>
-                        <li>Pricing</li>
-                        <li>About Us</li>
-                        <li>Privacy</li>
-                        <li>Resources</li>
-                        <li>Refer a friend</li>
-                      </ul>
+                        <ul>
+                            <li>Pricing</li>
+                            <li>About Us</li>
+                            <li>Privacy</li>
+                            <li>Resources</li>
+                            <li>Refer a friend</li>
+                        </ul>
                     </Col>
                 </Row>
                 <Row>
                     <Col className="copy-right" >
-                       <p>&copy;  2022 : All Right Reserved </p>
+                        <p>&copy;  2022 : All Right Reserved </p>
                     </Col>
                 </Row>
             </Container>

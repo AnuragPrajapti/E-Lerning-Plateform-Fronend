@@ -4,7 +4,14 @@
     background-color: #0a3761;
     border-top-left-radius: 200px;
     border-bottom-right-radius: 200px;
+
+    @media screen and (max-width : 767px) {
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+
     display: flex;
+
     .heading-title-pricing {
         p {
             color: white;
@@ -15,6 +22,7 @@
             letter-spacing: 0.2rem;
         }
     }
+
     span {
         display: block;
         color: white;
@@ -26,10 +34,16 @@
 
     .cards-wrapper {
         margin: 100px 0 0 0;
+
         .price-card1 {
+            @media screen and (max-width : 767px) {
+                margin-top: 20px;
+            }
+
             background: white;
             padding: 30px;
             border-radius: 30px;
+
             // width: 350px;
             .basic-title1 {
                 text-align: center;
@@ -38,30 +52,46 @@
                 border-bottom-right-radius: 30px;
                 border-top-left-radius: 30px;
                 padding: 50px;
+
                 b {
                     font-size: 38px;
                     font-family: serif;
                 }
+                @media screen and (max-width : 767px) {
+                   b{
+                    font-size: 38px;
+                    font-family: serif;
+                   }
+                }
+    
                 p {
                     margin: 20px 0 0 0;
                 }
             }
-            
+
             .basic-title2 {
                 text-align: center;
-                background-color:  #0a3761;
+                background-color: #0a3761;
                 color: white;
                 border-bottom-right-radius: 30px;
                 border-top-left-radius: 30px;
                 padding: 50px;
+
                 b {
                     font-size: 38px;
                     font-family: serif;
                 }
+                @media screen and (max-width : 767px) {
+                    b{
+                     font-size: 28px;
+                     font-family: serif;
+                    }
+                 }
                 p {
                     margin: 20px 0 0 0;
                 }
             }
+
             .basic-title3 {
                 text-align: center;
                 background-color: #ad6002;
@@ -69,14 +99,23 @@
                 border-bottom-right-radius: 30px;
                 border-top-left-radius: 30px;
                 padding: 50px;
+
                 b {
                     font-size: 38px;
                     font-family: serif;
                 }
+                @media screen and (max-width : 767px) {
+                    b{
+                     font-size: 28px;
+                     font-family: serif;
+                    }
+                 }
+
                 p {
                     margin: 20px 0 0 0;
                 }
             }
+
             .border-pera {
                 text-align: center;
                 margin: 20px 0 0px 0;
@@ -86,11 +125,13 @@
                 font-family: inherit;
                 font-size: 22px;
             }
+
             .content-title {
                 margin: 30px 0px 0 14px;
                 font-weight: 100;
                 font-family: inherit;
             }
+
             .bottom-button {
                 Button {
                     background-color: darkgoldenrod;
@@ -104,7 +145,8 @@
             }
         }
     }
-    .bottom-heading{
+
+    .bottom-heading {
         text-align: center;
         margin: 50px 0 50px 0px;
         color: white;

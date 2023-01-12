@@ -139,7 +139,8 @@ const Signin = () => {
                 ) : (
                   <button className="btn">Login</button>
                 )}
-                <p className='mt-3'>Don't Have an Accout?<span><NavLink to="/signup" >Register Now</NavLink></span> </p>
+                <p className='mt-3'>Don't Have an Accout?{"  "}<span><NavLink to="/signup" >Register Now</NavLink></span> </p>
+                <p>Back to home page ?{"  "}<span><NavLink to="/" >Home Page</NavLink></span></p>
               </form>
             </div>
           </Col>

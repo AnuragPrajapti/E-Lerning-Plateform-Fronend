@@ -22,7 +22,9 @@ const AccountForm = ({
   updateFields,
 }: AccountFormProps) => {
   const [type, setType] = useState("password");
+  const [confimType, setConfimType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+  const [icon1, setIcon1] = useState(eyeOff);
 
   const handleToggle = () => {
     if (type === "password") {
@@ -31,6 +33,16 @@ const AccountForm = ({
     } else {
       setIcon(eyeOff);
       setType("password");
+    }
+  };
+
+  const handleToggleConfim = () => {
+    if (confimType === "password") {
+      setIcon1(eye);
+      setConfimType("text");
+    } else {
+      setIcon1(eyeOff);
+      setConfimType("password");
     }
   };
 
@@ -105,13 +117,13 @@ const AccountForm = ({
             <Form.Group className="mb-3">
               <Form.Control
                 required
-                type={type}
+                type={confimType}
                 placeholder="Confirm_Password"
                 value={cPassword}
                 onChange={(e) => updateFields({ cPassword: e.target.value })}
               />
-              <span className="iconStyle" onClick={handleToggle}>
-                <Icon style={{ color: "white" }} icon={icon} size={18} />
+              <span className="iconStyle" onClick={handleToggleConfim}>
+                <Icon style={{ color: "white" }} icon={icon1} size={18} />
               </span>
             </Form.Group>
           </div>
