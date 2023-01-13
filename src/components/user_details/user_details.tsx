@@ -163,7 +163,7 @@ const UserDetails = () => {
         setHandleEdit(false);
       }, 1500)
     }
-    else {
+    if (errorMessateByGetUserData) {
       toast.error(errorMessateByGetUserData, {
         position: 'top-center',
         autoClose: 1000,
@@ -180,7 +180,9 @@ const UserDetails = () => {
       setTimeout(() => {
         navigate('/signup');
       }, 2000)
-    } else {
+    }
+
+    if (errorMessageToUserDelete) {
       toast.error(errorMessageToUserDelete, {
         position: 'top-center',
         autoClose: 1500,

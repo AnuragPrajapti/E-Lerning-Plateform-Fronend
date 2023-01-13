@@ -44,44 +44,46 @@ const Signin = () => {
 
   const getDataByAdmin: any = useAppSelector(state => state?.authAdminReducer?.getAdminProfileData);
   const adminEmail = getDataByAdmin?.email ? getDataByAdmin?.email[0] : '';
-
+  const successMessageAdminLogin = useAppSelector(state => state?.authAdminReducer?.adminLogin?.success);
+  const successMessageUserLogin = useAppSelector(state => state?.authUserReducer?.message);
   const onSubmit = (data: any) => {
     if (adminEmail === data.email) {
       dispatch(getLoginAdmin(data))
       setLoader(true);
       reset()
-    } else if (data?.email !== '') {
-      dispatch(getLoginUser(data))
-      setLoader(true);
-      reset()
-    } else {
-      alert('user not found please register now')
-      navigate('/signup')
-    }
-  };
 
-  const successMessageAdminLogin = useAppSelector(state => state?.authAdminReducer?.adminLogin?.success);
-  const successMessageUserLogin = useAppSelector(state => state?.authUserReducer?.message);
-
-  useEffect(() => {
-    if (successMessageAdminLogin) {
-      toast.success(successMessageAdminLogin, {
-        position: 'top-center',
-        autoClose: 1500,
-      })
-      setTimeout(() => { navigate('/admin_index') }, 2000)
-    }
-  }, [successMessageAdminLogin])
-
-  useEffect(() => {
-    if (successMessageUserLogin) {
       toast.success(successMessageUserLogin, {
         position: 'top-center',
         autoClose: 1500,
       })
       setTimeout(() => { navigate('/user_details') }, 2000)
+
+    } else if (data?.email !== '') {
+      dispatch(getLoginUser(data))
+      setLoader(true);
+      reset()
+      toast.success(successMessageAdminLogin, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+      setTimeout(() => { navigate('/admin_index') }, 2000)
+    } else {
+      alert('user not found please register now')
+      navigate('/signup')
     }
-  }, [successMessageUserLogin])
+
+
+
+  };
+
+
+  // useEffect(() => {
+
+  // }, [successMessageAdminLogin])
+
+  // useEffect(() => {
+
+  // }, [successMessageUserLogin])
 
 
   const [type, setType] = useState("password");
