@@ -17,7 +17,7 @@ const PricingSection = () => {
   };
 
   const handeClick = () => {
-    navigate('/signu')
+    navigate('/signup')
   }
 
   return (

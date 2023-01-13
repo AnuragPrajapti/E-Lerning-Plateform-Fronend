@@ -23,7 +23,7 @@ export const getRegisterUser = createAsyncThunk(
     formData.append('state', data?.state);
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_KEY}register`, formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_KEY}/register`, formData);
       if (response.status === 200) {
         return  fulfillWithValue(response.data);
       }

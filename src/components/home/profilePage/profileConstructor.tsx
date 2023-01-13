@@ -12,19 +12,19 @@ const ProfileConstructor = () => {
             </b>
           </Col>
           <Row className="justify-content-center d-flex" >
-          <Col lg={4} sm={4} md={3} className="profile-title">
-            <span>Smart Profile</span>
-            <p>
-              Create your smart business profile with a sharabe link and
-              downloadable document to be a hand out to your clients. Your
-              projects, protfolio and reviewa with compenlling story will stand
-              out and will be found by clients looking forward to networok with
-              you. Save money time from building websites.
-            </p>
-          </Col>
-          <Col lg={8} sm={8} md={9} className="image-logo" >
+            <Col lg={4} sm={4} md={3} className="profile-title">
+              <span>Smart Profile</span>
+              <p>
+                Create your smart business profile with a sharabe link and
+                downloadable document to be a hand out to your clients. Your
+                projects, protfolio and reviewa with compenlling story will stand
+                out and will be found by clients looking forward to networok with
+                you. Save money time from building websites.
+              </p>
+            </Col>
+            <Col lg={8} sm={8} md={9} className="image-logo" >
               <b>B</b>
-          </Col>
+            </Col>
           </Row>
         </Row>
       </Container>
