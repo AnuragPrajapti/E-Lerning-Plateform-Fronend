@@ -4,6 +4,7 @@
   background-color: #e6dacbc2;
   border-radius: 30px;
   box-shadow: 0 0 10px 0px;
+
   .bidding-section {
     #headingTitle {
       margin: 60px 0 0 0;
@@ -11,14 +12,17 @@
       font-size: 28px;
       letter-spacing: 4px;
     }
+
     .rangeCol {
       p {
         margin: 60px 0px 20px 0;
       }
     }
+
     .bidValue {
       margin: 80px 0 0 0;
     }
+
     .totalValue {
       float: right;
       border: 2px solid #86a9c8;
@@ -28,13 +32,16 @@
       text-align: center;
     }
   }
+
   .bid-success-rate {
     .p {
       margin: 100px 0 20px 0;
     }
+
     .bid-per-year {
       margin: 60px 0 40px 0;
     }
+
     .totalValue {
       float: right;
       border: 2px solid #86a9c8;
@@ -43,21 +50,28 @@
       height: 40px;
       text-align: center;
     }
-    .title{
-        text-align: center;
-        color: #362e6a;
-        letter-spacing: 2px;
-        font-size: 20px;
-    }
-  }
-  @media screen and ( max-width : 767px ) {
-    .bidding-section {
-    #headingTitle {
-      margin: 40px 0 0 0;
+
+    .title {
       text-align: center;
-      font-size: 20px;
+      color: #362e6a;
       letter-spacing: 2px;
+      font-size: 20px;
+
+      @media screen and (max-width : 767px) {
+        font-size: 18px;
+        padding-top: 20px;
+      }
     }
   }
+
+  @media screen and (max-width : 767px) {
+    .bidding-section {
+      #headingTitle {
+        margin: 40px 0 0 0;
+        text-align: center;
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+    }
   }
 }

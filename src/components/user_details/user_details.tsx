@@ -76,22 +76,22 @@ const UserDetails = () => {
 
 
   const getSuccessMessage = useAppSelector(state => state?.authUserReducer?.message)
-  const falseState = useAppSelector(state => state?.authUserReducer?.falseState);
 
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(getUserDetails())
 
-    }, 2000)
-    if (getSuccessMessage && falseState === true) {
+  useEffect(() => {
+    dispatch(getUserDetails())
+  }, [])
+
+  useEffect(() => {
+    if (getSuccessMessage) {
       toast.success(getSuccessMessage, {
         position: 'top-center',
         autoClose: 1500,
       })
     }
-  }, [getSuccessMessage, falseState]);
+  }, [getSuccessMessage]);
 
   const navigate = useNavigate();
   const [file, selectFile] = useFileUpload() as HTMLInputElement | any;
@@ -109,7 +109,7 @@ const UserDetails = () => {
   const errorMessageToUserDelete = useAppSelector(state => state?.authUserReducer?.getDeleteErrorMsg);
 
   const handleLogout = () => {
-    toast.success('User_Logout_Successfully', {
+    toast.error('User_Logout_Successfully', {
       position: 'top-center',
       autoClose: 1000,
     })
@@ -153,7 +153,7 @@ const UserDetails = () => {
   }
 
   useEffect(() => {
-    if (UpserUpdateMessage && falseState === true) {
+    if (UpserUpdateMessage) {
       toast.success(UpserUpdateMessage, {
         position: 'top-center',
         autoClose: 1500,
@@ -169,10 +169,10 @@ const UserDetails = () => {
         autoClose: 1000,
       })
     }
-  }, [UpserUpdateMessage, errorMessateByGetUserData, falseState])
+  }, [UpserUpdateMessage, errorMessateByGetUserData])
 
   useEffect(() => {
-    if (successMesageToUserDelete && falseState === true) {
+    if (successMesageToUserDelete) {
       toast.success(successMesageToUserDelete, {
         position: 'top-center',
         autoClose: 1500,

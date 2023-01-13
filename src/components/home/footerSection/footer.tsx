@@ -7,12 +7,12 @@ const Footer = () => {
         <>
             <Container className="footer-contant" id="footer" >
                 <Row>
-                    <Col className="imgae-title" >
+                    <Col className="imgae-title" md={4} lg={4} sm={12} >
                         <img src={logo} alt="logo" />
                         <p>Member of Parliyament</p>
 
                     </Col>
-                    <Col>
+                    <Col lg={4} md={4} sm={6} xs={6}  >
                         <ul>
                             <li>V-Plan</li>
                             <li>204,908 Dundas Street East,</li>
@@ -20,7 +20,7 @@ const Footer = () => {
                             <li>Canada</li>
                         </ul>
                     </Col>
-                    <Col>
+                    <Col lg={4} md={4} sm={6} xs={6} >
                         <ul>
                             <li>Pricing</li>
                             <li>About Us</li>

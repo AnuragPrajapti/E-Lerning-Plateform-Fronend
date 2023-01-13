@@ -1,16 +1,14 @@
 .pricing-section {
     margin: 150px 10px 0 10px;
-    // height: 100vh;
     background-color: #0a3761;
     border-top-left-radius: 200px;
     border-bottom-right-radius: 200px;
+    display: flex;
 
     @media screen and (max-width : 767px) {
         border-top-left-radius: 50px;
         border-bottom-right-radius: 50px;
     }
-
-    display: flex;
 
     .heading-title-pricing {
         p {
@@ -44,7 +42,6 @@
             padding: 30px;
             border-radius: 30px;
 
-            // width: 350px;
             .basic-title1 {
                 text-align: center;
                 background-color: #393042;
@@ -57,13 +54,14 @@
                     font-size: 38px;
                     font-family: serif;
                 }
+
                 @media screen and (max-width : 767px) {
-                   b{
-                    font-size: 38px;
-                    font-family: serif;
-                   }
+                    b {
+                        font-size: 38px;
+                        font-family: serif;
+                    }
                 }
-    
+
                 p {
                     margin: 20px 0 0 0;
                 }
@@ -81,12 +79,14 @@
                     font-size: 38px;
                     font-family: serif;
                 }
+
                 @media screen and (max-width : 767px) {
-                    b{
-                     font-size: 28px;
-                     font-family: serif;
+                    b {
+                        font-size: 28px;
+                        font-family: serif;
                     }
-                 }
+                }
+
                 p {
                     margin: 20px 0 0 0;
                 }
@@ -104,12 +104,13 @@
                     font-size: 38px;
                     font-family: serif;
                 }
+
                 @media screen and (max-width : 767px) {
-                    b{
-                     font-size: 28px;
-                     font-family: serif;
+                    b {
+                        font-size: 28px;
+                        font-family: serif;
                     }
-                 }
+                }
 
                 p {
                     margin: 20px 0 0 0;
@@ -130,6 +131,16 @@
                 margin: 30px 0px 0 14px;
                 font-weight: 100;
                 font-family: inherit;
+
+                ul {
+                    li {
+                        display: block;
+                        font-size: 16px;
+                        font-family: inherit;
+                        // letter-spacing: 0.1rem;
+                        font-weight: 100;
+                    }
+                }
             }
 
             .bottom-button {

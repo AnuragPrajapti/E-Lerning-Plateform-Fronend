@@ -43,12 +43,10 @@ const Signup = () => {
       <AddressForm {...data} updateFields={updateFields} />,
     ])
 
-  function onSubmit(e: FormEvent) {
+
+  const  onSubmit = (e: FormEvent) => {
     e.preventDefault()
     if (!isLastStep) return next()
-    const list: any = JSON.parse(localStorage.getItem('registerData')!);
-    const newData = list ? list : []
-    localStorage.setItem('registerData', JSON.stringify([...newData, data]));
     dispatch(getRegisterUser(data));
     setLoader(true);
     setData({

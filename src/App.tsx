@@ -13,7 +13,8 @@ import UsersData from './components/admin/usersData/usersData';
 import Settings from './components/admin/settings/settings';
 import Messages from './components/admin/messages/message';
 import PrivateRoutes from './components/privateRoutes/privateRoutes';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
   return (
