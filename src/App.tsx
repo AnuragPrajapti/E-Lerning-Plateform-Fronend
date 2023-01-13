@@ -15,12 +15,14 @@ import Messages from './components/admin/messages/message';
 import PrivateRoutes from './components/privateRoutes/privateRoutes';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Profile from './components/profile/Profile';
 
 const App = () => {
   return (
     <div className="App">
       {/* <CommonIndex/> */}
       {/* <CommonNavbar /> */}
+      {/* <Profile /> */}
       <Routes>
         <Route path='/' element={<HomeIndex />} />
         <Route path='/message' element={<Messages />} />
