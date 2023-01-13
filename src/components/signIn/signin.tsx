@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
 import { Spinner } from "react-bootstrap";
 import Icon from "react-icons-kit";
@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelector } from "../../services/useTypeSelector";
 import { getAdminProfile, getLoginAdmin } from "../../services/authAdmin/adminSlice";
 import { useNavigate } from "react-router-dom";
 import * as yup from 'yup'
-import login_From_Image from '../../assets/signin/login_Form_Image.jpg'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { NavLink } from "react-router-dom";
 import { ILoginForm } from "../../interface/interface";
@@ -71,20 +70,7 @@ const Signin = () => {
       alert('user not found please register now')
       navigate('/signup')
     }
-
-
-
   };
-
-
-  // useEffect(() => {
-
-  // }, [successMessageAdminLogin])
-
-  // useEffect(() => {
-
-  // }, [successMessageUserLogin])
-
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
@@ -104,12 +90,9 @@ const Signin = () => {
 
   return (
     <div className="loginWrapper">
-      <div className="loginAppText">
-        login Application
-      </div>
       <Container>
-        <Row className="loginForm" >
-          <Col lg={6}>
+        <Row className="loginForm justify-content-center d-flex" >
+          <Col lg={6}  md={8} sm={12} xs={12} >
             <div className="formWrapper" >
               <form
                 id="form"
@@ -144,13 +127,6 @@ const Signin = () => {
                 <p className='mt-3'>Don't Have an Accout?{"  "}<span><NavLink to="/signup" >Register Now</NavLink></span> </p>
                 <p>Back to home page ?{"  "}<span><NavLink to="/" >Home Page</NavLink></span></p>
               </form>
-            </div>
-          </Col>
-          <Col lg={6}>
-            <div className="d-flex align-content-between flex-column align-items-end position-relative">
-              <div className="bannerImageWrapper">
-                {/* <img src={login_From_Image} /> */}
-              </div>
             </div>
           </Col>
         </Row>

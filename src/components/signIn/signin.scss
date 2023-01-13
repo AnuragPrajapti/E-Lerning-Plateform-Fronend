@@ -1,14 +1,12 @@
 .loginWrapper {
-  margin-bottom: 0px;
-  padding-top: 10px;
-  padding-bottom: 60px;
-  background-image: -webkit-linear-gradient(346deg, rgb(255, 255, 255) 56%, #003049 0%);
-  background-position: right center;
-  background-size: contain;
+  background-image: url(../../assets/signin/signin-background-img.jpg);
+  // background-image: -webkit-linear-gradient(346deg, rgb(255, 255, 255) 56%, #003049 0%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
   height: 100vh;
 
   .loginAppText {
-    background: white;
     padding: 10px 20px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
@@ -22,10 +20,11 @@
   }
 
   .loginForm {
-    margin-top: 120px;
-
+    max-width: 1080px;
+    margin-top: 70px;
+    color: #ffff;
     .formWrapper {
-      border: 2px solid aliceblue;
+      border: 4px solid rgb(42, 87, 128);
       box-shadow: 0 0 2px 0px;
 
       #form {
@@ -33,12 +32,13 @@
         margin: 2em auto;
 
         h2 {
-          font-size: 24px;
-          font-weight: 100;
+          color: black;
+          font-size: 26px;
+          font-weight: 600;
           font-family: math;
-          letter-spacing: 2px;
+          letter-spacing: 4px;
           text-align: center;
-          border-bottom: 2px solid #96bfe4;
+          border-bottom: 2px solid #3a96f1;
           padding-bottom: 20px;
         }
       }
@@ -48,21 +48,25 @@
       border: 1px solid #e9ecef;
       padding: 0.9em 1em;
       display: flex;
+      width: 100%;
     }
 
-    .password_Input {
-      display: flex;
-    }
+    
 
     .password_Input_Field {
+      display: block;
       position: relative;
-    }
+      width: 100%;
+      .password_Input {
+      }
 
     .icon_eys {
       position: absolute;
       top: 15px;
       right: 10px;
     }
+    }
+
 
     #form>.btn {
       background-color: darkgoldenrod;
