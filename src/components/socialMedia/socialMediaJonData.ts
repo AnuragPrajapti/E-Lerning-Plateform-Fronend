@@ -1,62 +1,73 @@
-export const Users =
-    [
-        {
-            id: 1,
-            profilePicture: "assets/person/1.jpeg",
-            username: "Safak Kocaoglu",
-        },
-        {
-            id: 2,
-            profilePicture: "assets/person/2.jpeg",
-            username: "Janell Shrum",
-        },
-        {
-            id: 3,
-            profilePicture: "assets/person/3.jpeg",
-            username: "Alex Durden",
-        },
-        {
-            id: 4,
-            profilePicture: "assets/person/4.jpeg",
-            username: "Dora Hawks",
-        },
-        {
-            id: 5,
-            profilePicture: "assets/person/5.jpeg",
-            username: "Thomas Holden",
-        },
-        {
-            id: 6,
-            profilePicture: "assets/person/6.jpeg",
-            username: "Shirley Beauchamp",
-        },
-        {
-            id: 7,
-            profilePicture: "assets/person/7.jpeg",
-            username: "Travis Bennett",
-        },
-        {
-            id: 8,
-            profilePicture: "assets/person/8.jpeg",
-            username: "Kristen Thomas",
-        },
-        {
-            id: 9,
-            profilePicture: "assets/person/9.jpeg",
-            username: "Gary Duty",
-        },
-        {
-            id: 10,
-            profilePicture: "assets/person/10.jpeg",
-            username: "Safak Kocaoglu",
-        },
-    ];
+import  img1 from '../../assets/socialMedia/person/1.jpeg'
+import  img2 from '../../assets/socialMedia/person/2.jpeg'
+import  img3 from '../../assets/socialMedia/person/3.jpeg'
+import  img4 from '../../assets/socialMedia/person/4.jpeg'
+import  img5 from '../../assets/socialMedia/person/5.jpeg'
+import  img6 from '../../assets/socialMedia/person/6.jpeg'
+import  img7 from '../../assets/socialMedia/person/7.jpeg'
+import  img8 from '../../assets/socialMedia/person/8.jpeg'
+import  img9 from '../../assets/socialMedia/person/9.jpeg'
+import  img10 from '../../assets/socialMedia/person/10.jpeg'
+
+
+export const Users = [
+    {
+        id: 1,
+        profilePicture: img1,
+        username: "Safak Kocaoglu",
+    },
+    {
+        id: 2,
+        profilePicture: img2,
+        username: "Janell Shrum",
+    },
+    {
+        id: 3,
+        profilePicture: img3,
+        username: "Alex Durden",
+    },
+    {
+        id: 4,
+        profilePicture: img4,
+        username: "Dora Hawks",
+    },
+    {
+        id: 5,
+        profilePicture: img5,
+        username: "Thomas Holden",
+    },
+    {
+        id: 6,
+        profilePicture: img6,
+        username: "Shirley Beauchamp",
+    },
+    {
+        id: 7,
+        profilePicture: img7,
+        username: "Travis Bennett",
+    },
+    {
+        id: 8,
+        profilePicture: img8,
+        username: "Kristen Thomas",
+    },
+    {
+        id: 9,
+        profilePicture: img9,
+        username: "Gary Duty",
+    },
+    {
+        id: 10,
+        profilePicture: img10,
+        username: "Safak Kocaoglu",
+    },
+];
 
 export const Posts = [
     {
         id: 1,
         desc: "Love For All, Hatred For None.",
-        photo: "assets/post/1.jpeg",
+        photo: img1,
         date: "5 mins ago",
         userId: 1,
         like: 32,
@@ -64,7 +75,7 @@ export const Posts = [
     },
     {
         id: 2,
-        photo: "assets/post/2.jpeg",
+        photo: img2,
         date: "15 mins ago",
         userId: 2,
         like: 2,
@@ -73,7 +84,7 @@ export const Posts = [
     {
         id: 3,
         desc: "Every moment is a fresh beginning.",
-        photo: "assets/post/3.jpeg",
+        photo: img3,
         date: "1 hour ago",
         userId: 3,
         like: 61,
@@ -81,7 +92,7 @@ export const Posts = [
     },
     {
         id: 4,
-        photo: "assets/post/4.jpeg",
+        photo: img4,
         date: "4 hours ago",
         userId: 4,
         like: 7,
@@ -89,7 +100,7 @@ export const Posts = [
     },
     {
         id: 5,
-        photo: "assets/post/5.jpeg",
+        photo: img5,
         date: "5 hours ago",
         userId: 5,
         like: 23,
@@ -97,7 +108,7 @@ export const Posts = [
     },
     {
         id: 6,
-        photo: "assets/post/6.jpeg",
+        photo: img6,
         date: "1 day ago",
         userId: 6,
         like: 44,
@@ -106,7 +117,7 @@ export const Posts = [
     {
         id: 7,
         desc: "Never regret anything that made you smile.",
-        photo: "assets/post/7.jpeg",
+        photo: img7,
         date: "2 days ago",
         userId: 7,
         like: 52,
@@ -114,7 +125,7 @@ export const Posts = [
     },
     {
         id: 8,
-        photo: "assets/post/8.jpeg",
+        photo: img8,
         date: "3 days ago",
         userId: 8,
         like: 15,
@@ -123,7 +134,7 @@ export const Posts = [
     {
         id: 9,
         desc: "Change the world by being yourself.",
-        photo: "assets/post/9.jpeg",
+        photo: img9,
         date: "5 days ago",
         userId: 9,
         like: 11,
@@ -131,7 +142,7 @@ export const Posts = [
     },
     {
         id: 10,
-        photo: "assets/post/10.jpeg",
+        photo: img10,
         date: "1 week ago",
         userId: 10,
         like: 104,

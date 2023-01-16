@@ -2,6 +2,8 @@ import "./post.css";
 import { MoreVert } from "@material-ui/icons";
 import { useState } from "react";
 import { Users } from "../socialMediaJonData";
+import Like from '../../../assets/socialMedia/like.png'
+import Heart from '../../../assets/socialMedia/heart.png'
 
 export default function Post({ post }) {
   const [like,setLike] = useState(post.like)
@@ -36,8 +38,8 @@ export default function Post({ post }) {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <img className="likeIcon" src="assets/like.png" onClick={likeHandler} alt="" />
-            <img className="likeIcon" src="assets/heart.png" onClick={likeHandler} alt="" />
+            <img className="likeIcon" src={Like} onClick={likeHandler} alt="" />
+            <img className="likeIcon" src={Heart} onClick={likeHandler} alt="" />
             <span className="postLikeCounter">{like} people like it</span>
           </div>
           <div className="postBottomRight">

@@ -3,6 +3,8 @@ import Topbar from "../socialMedia/topbar/Topbar";
 import Sidebar from "../socialMedia/sidebar/Sidebar";
 import Rightbar from "../socialMedia/rightbar/Rightbar";
 import Feed from "../socialMedia/feed/Feed";
+import Profile_Img from "../../assets/socialMedia/post/3.jpeg";
+import Person_Img from "../../assets/socialMedia/person/7.jpeg";
 
 export default function Profile() {
   return (
@@ -15,13 +17,13 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src="assets/post/3.jpeg"
-                alt=""
+                src={Profile_Img}
+                alt="Profile_Img"
               />
               <img
                 className="profileUserImg"
-                src="assets/person/7.jpeg"
-                alt=""
+                src={Person_Img}
+                alt="person_Img"
               />
             </div>
             <div className="profileInfo">
