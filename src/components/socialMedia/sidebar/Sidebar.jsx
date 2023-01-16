@@ -10,10 +10,12 @@ import {
   Event,
   School,
 } from "@material-ui/icons";
-import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import { Users } from "../socialMediaJonData";
 
 export default function Sidebar() {
+
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
