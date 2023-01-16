@@ -1,24 +1,39 @@
-import "./rightbar.css";
-import { Users } from "../../dummyData";
+import "./rightbar.scss";
+import { Users } from "../socialMediaJonData";
 import Online from "../online/Online";
+import { ImgageData } from "./ImgData";
+import { Col, Container, Row } from "react-bootstrap";
+import Birthday_Img from '../../../assets/socialMedia/gift.png'
+import adImg from '../../../assets/socialMedia/ad.png'
 
 export default function Rightbar({ profile }) {
+  console.log(111, ImgageData)
   const HomeRightbar = () => {
     return (
       <>
-        <div className="birthdayContainer">
-          <img className="birthdayImg" src="assets/gift.png" alt="" />
-          <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
-          </span>
+        <div className="birthdat-container" >
+          <Container>
+            <Row >
+              <Col>
+                <div className="birthday-Container-list">
+                  <img className="birthdayImg" src={Birthday_Img} alt="Birthday_Img" />
+                  <span className="birthdayText">
+                    <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
+                  </span>
+                </div>
+                <div>
+                  <img className="rightbar-Ad" src={adImg} alt="adImg" />
+                  <h4 className="rightbar-title">Online Friends</h4>
+                  <ul className="rightbar-friend-list">
+                    {Users.map((u) => (
+                      <Online key={u.id} user={u} />
+                    ))}
+                  </ul>
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
-        <img className="rightbarAd" src="assets/ad.png" alt="" />
-        <h4 className="rightbarTitle">Online Friends</h4>
-        <ul className="rightbarFriendList">
-          {Users.map((u) => (
-            <Online key={u.id} user={u} />
-          ))}
-        </ul>
       </>
     );
   };
@@ -26,71 +41,37 @@ export default function Rightbar({ profile }) {
   const ProfileRightbar = () => {
     return (
       <>
-        <h4 className="rightbarTitle">User information</h4>
-        <div className="rightbarInfo">
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York</span>
-          </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">From:</span>
-            <span className="rightbarInfoValue">Madrid</span>
-          </div>
-          <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Single</span>
-          </div>
-        </div>
-        <h4 className="rightbarTitle">User friends</h4>
-        <div className="rightbarFollowings">
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/1.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/2.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/3.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/4.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/5.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src="assets/person/6.jpeg"
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
+        <div className="profile-container">
+          <Container>
+            <Row className="profile-heading" >
+              <Col>
+                <h5>User information</h5>
+                <p>City : <span>Indore</span> </p>
+                <p>From : <span>Ranjeet</span> </p>
+                <p>Relationship : <span>Mingle</span> </p>
+              </Col>
+            </Row>
+            <Row className="users-friend"  >
+              <Col>
+                <h4>User friends</h4>
+                <div className="following-list">
+                  {
+                    ImgageData.length > 0 ? ImgageData?.map((personImg, index) => {
+                      return (
+                        <div className="following-list-item" key={index}>
+                          <img
+                            src={personImg?.PersonImgae}
+                            alt="Person_Img1"
+                          />
+                          <span className="rightbarFollowingName">{personImg?.name}</span>
+                        </div>
+                      )
+                    }) : ""
+                  }
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
       </>
     );
