@@ -106,7 +106,7 @@ const Signup = () => {
                 loader ? <Spinner animation="border" /> : 
                 <div className="nxt-btn"><button className='btn'>{isLastStep ? "Register" : "Next"}</button></div>
               }
-              <p className='mt-3 quotes'>Alredy Have an Accout ? <span><NavLink to="/signin" > Login...</NavLink></span> </p>
+              <p className='mt-3 quotes bottom-pera'>Alredy Have an Accout ? <span><NavLink to="/signin" > Login...</NavLink></span> </p>
             </Form>
           </Col>
         </Row>

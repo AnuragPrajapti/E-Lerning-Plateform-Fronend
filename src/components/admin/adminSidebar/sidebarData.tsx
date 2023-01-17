@@ -1,5 +1,5 @@
-import * as FaIcons from 'react-icons/fa' 
-import { BiLogOut } from 'react-icons/bi' 
+import * as FaIcons from 'react-icons/fa'
+import { BiLogOut } from 'react-icons/bi'
 import { ImProfile } from "react-icons/im";
 
 export const SidebarData = [
@@ -10,22 +10,24 @@ export const SidebarData = [
     },
     {
         title: 'Users_data',
-        path: ':id',
+        path: '/admin_index/user-data',
         icon: <FaIcons.FaUsers />
     },
     {
         title: 'Messages',
-        path: ':id/messages',
+        path: '/admin_index/messages',
         icon: <FaIcons.FaRocketchat />
     },
     {
         title: 'Settings',
-        path: ':id/settings',
+        path: '/admin_index/settings',
         icon: <FaIcons.FaRegSun />
     },
     {
         title: 'Logout',
         path: `/`,
-        icon: <BiLogOut style={{ fontSize : '28px' }} />
+        icon: <BiLogOut style={{ fontSize: '28px' }}
+            onClick={() => localStorage.removeItem('authToken')}
+             />
     },
 ]
