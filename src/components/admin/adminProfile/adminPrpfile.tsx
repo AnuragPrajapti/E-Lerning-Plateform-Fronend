@@ -80,8 +80,9 @@ const AdminProfile = () => {
     <div className='wrapper'>
       <Container>
         <Row>
-          <h3>Admin Profile!</h3>
-          <button onClick={handleLogout}>Logout</button>
+          <Col lg={12} >
+            <h3>Admin Profile!</h3>
+          </Col>
         </Row>
         <Form onSubmit={handleSubmit(onsubmit)} id='formData' >
           <Row className='profileRow'>
@@ -189,7 +190,13 @@ const AdminProfile = () => {
               </div>
             </Col>
           </Row>
-          <button className='button' >Update</button>
+          <Row>
+            <Col>
+          <div className='justify-content-center d-flex' >
+            <button className='button' >Update</button>
+          </div>
+            </Col>
+          </Row>
         </Form>
       </Container>
     </div>

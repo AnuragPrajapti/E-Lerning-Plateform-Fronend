@@ -1,0 +1,97 @@
+.admin-profile-wrapper {
+    padding: 20px;
+    background-color: rgb(233, 243, 250);
+    background-size: cover !important;
+    width: 100% !important;
+    height: 100%;
+    white-space:break-spaces;
+    .header-section {
+        display: flex;
+        justify-content: center;
+
+
+        img {
+            width: 70px;
+            border-radius: 100%;
+            height: 70px;
+            margin-top: 8px;
+            box-shadow: 0 0 4px 2px;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0 0 0;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: .1rem;
+        }
+
+        span {
+            display: flex;
+            justify-content: center;
+            color: #7f7878;
+        }
+
+        .react-icons {
+            color: #060505;
+            font-size: 30px;
+            margin: 10px 15px 0 0;
+            border: 1px solid #7f7878;
+            border-radius: 100%;
+            padding: 6px;
+            cursor: pointer;
+        }
+    }
+
+    .middle-section {
+        margin-top: 20px;
+
+        p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            cursor: pointer;
+
+            .icon-logo {
+                font-size: 22px;
+                margin: 0px 0 2px 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .footer-section {
+        margin: 20px 0 0 0;
+        border-top: 2px solid #ccdef0;
+
+
+        p {
+            margin: 10px 0 0 0;
+                cursor: pointer;
+                span {
+                .other-profile-icon {
+                    float: right;
+                    font-size: 26px;
+                    color: dimgray;
+                    padding: 1px;
+                    cursor: pointer;
+                }
+            }
+
+            .icon-logo {
+                color: #060505;
+                margin: -5px 5px 0 0;
+                cursor: pointer;
+            }
+
+            .logout-icon {
+                margin: 0px 0 4px 0px;
+                font-size: 20px;
+                padding: 0 2px 0 0;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
