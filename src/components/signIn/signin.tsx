@@ -50,22 +50,23 @@ const Signin = () => {
       dispatch(getLoginAdmin(data))
       setLoader(true);
       reset()
+        toast.success(successMessageAdminLogin, {
+          position: 'top-center',
+          autoClose: 1500,
+        })
+      setTimeout(() => { navigate('/admin_index') }, 2000)
 
+
+    } else if (data?.email !== '') {
+      dispatch(getLoginUser(data))
+      setLoader(true);
+      reset()
       toast.success(successMessageUserLogin, {
         position: 'top-center',
         autoClose: 1500,
       })
       setTimeout(() => { navigate('/user_details') }, 2000)
 
-    } else if (data?.email !== '') {
-      dispatch(getLoginUser(data))
-      setLoader(true);
-      reset()
-      toast.success(successMessageAdminLogin, {
-        position: 'top-center',
-        autoClose: 1500,
-      })
-      setTimeout(() => { navigate('/admin_index') }, 2000)
     } else {
       alert('user not found please register now')
       navigate('/signup')
@@ -92,7 +93,7 @@ const Signin = () => {
     <div className="loginWrapper">
       <Container>
         <Row className="loginForm justify-content-center d-flex" >
-          <Col lg={6}  md={8} sm={12} xs={12} >
+          <Col lg={6} md={8} sm={12} xs={12} >
             <div className="formWrapper" >
               <form
                 id="form"

@@ -9,9 +9,6 @@ import * as FaIcons from 'react-icons/fa'
 const CommonNavbar = () => {
 
   const [active, setActive] = useState('home')
-  const [close, setClose] = useState(false)
-  const showSidebar = () => setClose(!close)
-
   useEffect(() => {
     handleNavigate('home')
   }, [])
@@ -44,9 +41,9 @@ const CommonNavbar = () => {
                   <NavLink
                     onClick={() => handleNavigate('home')}
                     className={`${active === 'home' && 'active'}`}
-                    to="/"
+                    to="/profile"
                   >
-                    Home_Page
+                    About_Page
                   </NavLink>
                   <NavLink
                     onClick={() => handleNavigate('slider')}

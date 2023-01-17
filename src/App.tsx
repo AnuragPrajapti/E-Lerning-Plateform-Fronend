@@ -26,16 +26,16 @@ const App = () => {
         <Route path='/signin' element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path='/user_details' element={<UserDetails />} />
-        <Route path='profile' element={<Profile />} />
-        <Route path='admin_index' element={<PrivateRoutes isLogged={<AdminIndex />} />} >
-          <Route path="/admin_index" element={<AdminProfile />} />
-          <Route path=':id' element={<UsersData />} />
-          <Route path=':id/messages' element={<Messages />} />
-          <Route path=':id/settings' element={<Settings />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='admin_index' element={<PrivateRoutes isLogged={<AdminIndex />} />}   >
+          <Route index element={<AdminProfile />}  />
+          <Route path='user-data' element={<UsersData />} />
+          <Route path='messages' element={<Messages />} />
+          <Route path='settings' element={<Settings />} />
         </Route>
       </Routes>
       <ToastContainer autoClose={3000} />
-    </div>
+    </div>    
   )
 }
 
