@@ -17,9 +17,6 @@ const AdminProfileMidal = ({ show, handleClose, adminInfo }: any) => {
   const navigate = useNavigate()
 
   const handleClickIcon = (e: string) => {
-
-    console.log(22222, e)
-
     if (e === "add") {
       navigate('/signup')
     } else if (e === "logout") {
@@ -28,7 +25,6 @@ const AdminProfileMidal = ({ show, handleClose, adminInfo }: any) => {
     } else {
       return null;
     }
-
   }
 
   return (

@@ -2,15 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IinitialState, ILoginUser } from "../../interface/interface";
 
-const adminToken: any | null = JSON.parse(localStorage.getItem('authToken')!);
 
-
-
-const authConfig = {
-    headers: {
-        Authorization: `Bearer ${adminToken}`
-    }
-}
 
 export const getLoginUser = createAsyncThunk(
     "auth/getLoginUser",
@@ -109,8 +101,14 @@ export const getDeleteUserProfile: any = createAsyncThunk(
 export const getAllUsersData: any = createAsyncThunk(
     "auth/getAllUsersData",
     async (emty, { fulfillWithValue, rejectWithValue }) => {
+        const adminToken: any | null = JSON.parse(localStorage.getItem('authToken')!);
+        const authConfig = {
+            headers: {
+                Authorization: `Bearer ${adminToken}`
+            }
+        }
+        const response = await axios.get(`${process.env.REACT_APP_API_KEY}/allUser`, authConfig)
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_KEY}/allUser`, authConfig)
             if (response.status === 200) {
                 return fulfillWithValue(response.data)
             }

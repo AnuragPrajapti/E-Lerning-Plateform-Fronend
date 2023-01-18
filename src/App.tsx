@@ -28,8 +28,8 @@ const App = () => {
         <Route path='/user_details' element={<UserDetails />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='admin_index' element={<PrivateRoutes isLogged={<AdminIndex />} />}   >
-          <Route index element={<AdminProfile />}  />
-          <Route path='user-data' element={<UsersData />} />
+          <Route index element={<UsersData />}  />
+          <Route path='admin-profile' element={<AdminProfile />} />
           <Route path='messages' element={<Messages />} />
           <Route path='settings' element={<Settings />} />
         </Route>

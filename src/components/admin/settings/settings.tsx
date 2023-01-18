@@ -1,12 +1,17 @@
 import { useState } from 'react'
-import { Container , Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Button, Row, Col } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { options } from './settingData';
+import { FaEdit } from "react-icons/fa";
+import './settings.scss'
+import { useAppSelector } from '../../../services/useTypeSelector';
 
 const Settings = () => {
- 
+
   const [visibleOptions, setVisibleOptions] = useState(options);
+  const adminInfo = useAppSelector(state => state?.authAdminReducer?.adminData?.data)
+  const navigate = useNavigate()
   const onChange = (e: any) => {
     e.preventDefault();
     const value = e.target.value
@@ -42,24 +47,57 @@ const Settings = () => {
   }
 
   return (
+    <div className='setting-wrapper' >
       <Container>
-        <h1>
-          <span>
-            <NavLink to='/admin_index'>
-              <Button className='btn btn-secondary'>
-                <span>&lt;</span> Black
-              </Button></NavLink>
-            Settings
-          </span>
-        </h1>
-        <input type="search"
-          placeholder='Serach Here'
-          className='form-control mt-5'
-          style={{ width: "100%" }}
-          onChange={onChange}
-        />
-        <br />
-        <p style={{ float: "right" }}>Go To Home Page <Link to="/">Home</Link></p>
+        <Row>
+          <Col>
+            <div className='setting-header' >
+              <h1>
+                <span>
+                  <NavLink to='/admin_index'>
+                    <Button className='btn btn-secondary'>
+                      Black
+                    </Button>
+                  </NavLink>{" "}{" "}
+                  Settings
+                </span>
+              </h1>
+              <input type="search"
+                placeholder='Serach Here'
+                className='form-control mt-5'
+                style={{ width: "100%" }}
+                onChange={onChange}
+              />
+              <p>Go To Home Page <Link to="/">{" "} Home</Link></p>
+            </div>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <div className='middle-section' >
+              <ul className='list-group'>
+                <li className='list-group-item' >
+                  <p>{adminInfo?.firstName}{" "}{adminInfo?.lastName}</p>
+                  <p>{adminInfo?.email}</p>
+                  <span><FaEdit onClick={()=> navigate('/admin_index/admin-profile')} /></span>
+                </li>
+              </ul>
+            </div>
+          </Col>
+          <Col>
+          <div className='middle-section' >
+              <ul className='list-group'>
+                <li className='list-group-item' >
+                  <p>Phone : {adminInfo?.phone}</p>
+                  <p>{adminInfo?.address}</p>
+                  <p>{adminInfo?.city}</p>
+                </li>
+              </ul>
+            </div>
+          </Col>
+        </Row>
+{/* 
         <div>
           {
             visibleOptions.map(option =>
@@ -78,8 +116,9 @@ const Settings = () => {
                 </div>
               </div>)
           }
-        </div>
+        </div> */}
       </Container>
+    </div>
   )
 }
 

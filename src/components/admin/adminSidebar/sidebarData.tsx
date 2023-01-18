@@ -4,15 +4,15 @@ import { ImProfile } from "react-icons/im";
 
 export const SidebarData = [
     {
-        title: 'AdminProfile',
-        path: '/admin_index',
-        icon: <ImProfile />
-    },
-    {
         title: 'Users_data',
-        path: '/admin_index/user-data',
+        path: '/admin_index',
         icon: <FaIcons.FaUsers />
     },
+    // {
+    //     title: 'AdminProfile',
+    //     path: '/admin_index/admin-profile',
+    //     icon: <ImProfile />
+    // },
     {
         title: 'Messages',
         path: '/admin_index/messages',

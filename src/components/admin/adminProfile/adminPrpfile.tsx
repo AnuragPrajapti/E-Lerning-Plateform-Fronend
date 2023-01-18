@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../services/useTypeSelector'
 import { getAdminData, getUpdateAdminProfile } from '../../../services/authAdmin/adminSlice';
 import './adminProfile.scss'
-import { Col, Container, Row, Form, Spinner } from 'react-bootstrap';
+import { Col, Container, Row, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useFileUpload } from 'use-file-upload'
 import { toast } from 'react-toastify';

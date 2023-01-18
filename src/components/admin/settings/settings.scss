@@ -1,0 +1,52 @@
+.setting-wrapper {
+    background: antiquewhite;
+    height: 100vh;
+    font-family: initial;
+
+    .setting-header {
+        h1 {
+            margin: 20px 0 0 0;
+            font-size: 30px;
+            font-weight: 400;
+            letter-spacing: .1rem;
+
+            Button {
+                border-radius: 0px;
+                width: 100px;
+                padding: 3px;
+                background: #224f76;
+            }
+        }
+
+        p {
+            font-size: 15px;
+            margin: 10px;
+            justify-content: end;
+            display: flex;
+
+            a {
+                padding: 0px 0 0 5px;
+            }
+        }
+    }
+
+    .middle-section {
+        ul {
+            display: flex;
+
+            li {
+                p {
+                    margin: 0 auto;
+                }
+
+                span {
+                    color: #20507a;
+                    float: right;
+                    display: flex;
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
