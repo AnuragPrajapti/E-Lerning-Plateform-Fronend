@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from './components/signUp/signup';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Signin from './components/signIn/signin';
 import HomeIndex from './components/home/homeIndex';
 import AdminProfile from './components/admin/adminProfile/adminPrpfile';
@@ -15,9 +15,19 @@ import PrivateRoutes from './components/privateRoutes/privateRoutes';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Profile from './components/profile/Profile';
+import { useEffect } from 'react';
 
 
 const App = () => {
+
+  const location = useLocation()
+  useEffect(()=>{
+     window.scrollTo({
+      top :0,
+      behavior : "smooth"
+     })
+  },[location.pathname])
+
   return (
     <div className="App">
       <Routes>

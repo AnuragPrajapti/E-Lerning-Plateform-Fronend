@@ -133,6 +133,9 @@
                 font-family: inherit;
 
                 ul {
+                    @media screen and (max-width : "768") {
+                        padding-left: 0rem !important;
+                    }
                     li {
                         display: block;
                         font-size: 16px;
