@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const Navbar = styled.div`
     display: flex;
-    justify-content: start;
+    // justify-content: start;
     align-items: center;
     height: 3.5rem;
     background: radial-gradient(
@@ -15,15 +15,27 @@ export const Navbar = styled.div`
   );
 `
 
-export  const MenuIconOpen = styled(Link)`
+export const MenuIconOpen = styled(Link)`
     display: flex;
     justify-content: start;
     font-size: 1.5rem;
     margin-left: 2rem;
+    width: 50%;
     color: #ffffff;
 `
+export const AdminProfileDetails = styled.div`
+   width: 50%;
+   display : flex;
+   justify-content: end;
+   img{
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      margin: 0 20px 0 0;
+     }
+`
 
-export  const MenuIconClose = styled(Link)`
+export const MenuIconClose = styled(Link)`
     display: flex;
     justify-content: end;
     font-size: 1.5rem;
@@ -32,7 +44,7 @@ export  const MenuIconClose = styled(Link)`
     color: #ffffff;
 `
 
-export  const SidebarMenu = styled.div<{close: boolean}>`
+export const SidebarMenu = styled.div<{ close: boolean }>`
     width: 260px;
     height: 100vh;
      background: radial-gradient(
@@ -43,12 +55,12 @@ export  const SidebarMenu = styled.div<{close: boolean}>`
   );
     position: fixed;
     top: 0;
-    left: ${({ close}) => close ? '0' : '-100%'};
+    left: ${({ close }) => close ? '0' : '-100%'};
     transition: .6s;
     z-index: 9999;
 `
 
-export  const MenuItems = styled.li`
+export const MenuItems = styled.li`
     list-style: none;
     display: flex;
     align-items: center;
@@ -58,7 +70,7 @@ export  const MenuItems = styled.li`
     padding: 1rem 0 1.25rem;
 `
 
-export  const MenuItemLinks = styled(Link)`
+export const MenuItemLinks = styled(Link)`
     display: flex;
     align-items: center;
     padding: 0 2rem;

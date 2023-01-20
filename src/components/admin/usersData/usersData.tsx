@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, Spinner } from 'react-bootstrap';
+import { useEffect } from 'react'
+import { Container, Row, Col, Spinner, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { getAllUsersData } from '../../../services/authUser/userSlice';
 import { useAppSelector } from '../../../services/useTypeSelector';
-// import { useParams } from 'react-router-dom';
-import Table from 'react-bootstrap/Table';
 import './usersData.scss'
-import Pagination from './pagination';
 import DataTable from 'react-data-table-component';
+import { BiBlock } from "react-icons/bi";
+import { CgUnblock } from "react-icons/cg";
 
-const columns = [
+const columns = (clickHandler: any) => ([
   {
     name: 'ID',
     selector: (row: any) => row._id,
@@ -54,30 +53,42 @@ const columns = [
     sortable: true
   },
   {
-    name: 'Address',
-    selector: (row: any) => row.address,
-    // width: '100px',
-    sortable: true
+    name: 'Block',
+    cell: (row : any) => <BiBlock onClick={() => clickHandler(row._id)}
+      style={{ fontSize: "24px", color: "red", alignItems: "center" }} />,
+    width: '100px',
   },
   {
-    name: 'City',
-    selector: (row: any) => row.city,
-    // width: '100px',
-    sortable: true
+    name: 'UnBlock',
+    cell: (row : any) => <CgUnblock onClick={() => clickHandler(row._id)}
+      style={{ fontSize: "24px", color: "green", alignItems: "center" }} />,
+    width: '100px',
   },
-  {
-    name: 'State',
-    selector: (row: any) => row.state,
-    sortable: true
-    // width: '100px'
-  },
-  {
-    name: 'Pincode',
-    selector: (row: any) => row.zip,
-    sortable: true
-    // width: '100px'
-  },
-];
+  // {
+  //   name: 'Address',
+  //   selector: (row: any) => row.address,
+  //   // width: '100px',
+  //   sortable: true
+  // },
+  // {
+  //   name: 'City',
+  //   selector: (row: any) => row.city,
+  //   // width: '100px',
+  //   sortable: true
+  // },
+  // {
+  //   name: 'State',
+  //   selector: (row: any) => row.state,
+  //   sortable: true
+  //   // width: '100px'
+  // },
+  // {
+  //   name: 'Pincode',
+  //   selector: (row: any) => row.zip,
+  //   sortable: true
+  //   // width: '100px'
+  // },
+]);
 
 const UsersData = () => {
 
@@ -96,6 +107,10 @@ const UsersData = () => {
     }
   }, [getAllUsersMessage])
 
+  const handleClick = (id : any ) => {
+    console.log(111,id);
+  }
+
   return (
     <Container>
       <Row className='users-details-wrappers' >
@@ -104,9 +119,10 @@ const UsersData = () => {
           {
             isLoading === true ? <Spinner variant='border' />
               : <DataTable
-                columns={columns}
+                columns={columns(handleClick)}
                 data={allUsersData}
                 pagination
+                selectableRows
               />
           }
         </Col>

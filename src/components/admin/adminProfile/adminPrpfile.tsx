@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../services/useTypeSelector'
 import { getAdminData, getUpdateAdminProfile } from '../../../services/authAdmin/adminSlice';
 import './adminProfile.scss'
-import { Col, Container, Row, Form, Spinner } from 'react-bootstrap';
+import { Col, Container, Row, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useFileUpload } from 'use-file-upload'
 import { toast } from 'react-toastify';
@@ -80,8 +80,9 @@ const AdminProfile = () => {
     <div className='wrapper'>
       <Container>
         <Row>
-          <h3>Admin Profile!</h3>
-          <button onClick={handleLogout}>Logout</button>
+          <Col lg={12} >
+            <h3>Admin Profile!</h3>
+          </Col>
         </Row>
         <Form onSubmit={handleSubmit(onsubmit)} id='formData' >
           <Row className='profileRow'>
@@ -189,7 +190,13 @@ const AdminProfile = () => {
               </div>
             </Col>
           </Row>
-          <button className='button' >Update</button>
+          <Row>
+            <Col>
+          <div className='justify-content-center d-flex' >
+            <button className='button' >Update</button>
+          </div>
+            </Col>
+          </Row>
         </Form>
       </Container>
     </div>
