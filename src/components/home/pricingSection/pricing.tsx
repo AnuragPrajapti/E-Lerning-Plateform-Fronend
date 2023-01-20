@@ -9,11 +9,36 @@ const PricingSection = () => {
 
   const navigate = useNavigate()
   const settings = {
-    // dots: true,
-    // infinite: true,
-    // speed: 500,
-    // slidesToShow: 1,
-    // slidesToScroll: 1
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const handeClick = () => {
@@ -35,39 +60,40 @@ const PricingSection = () => {
               </Col>
             </Row>
           </Col>
-          {/* <Slider {...settings}> */}
-
-          <Row className="cards-wrapper">
+          <Slider {...settings}>
             {
-              PricingData.length > 0 ? PricingData.map((item, index) => {
+              PricingData?.map((item, index) => {
                 return (
-                  <Col key={index} >
-                    <div className="price-card1" >
-                      <div className={item.id === 0 ? 'basic-title1' : item.id === 1 ? 'basic-title2' : item.id === 2 ? 'basic-title3' : ""}>
-                        <b>{item?.title}</b>
-                        <p>{item?.subTitle}</p>
-                      </div>
-                      <p className="border-pera">{item?.description}</p>
-                      <div className="content-title" >
-                        <ul>
-                          <li><TiTick style={{ color: 'blue' }} />{item?.firstPoint}</li>
-                          <li><TiTick style={{ color: 'blue' }} />{item?.secondPoint}</li>
-                          <li><TiTick style={{ color: 'blue' }} />{item?.thirdPoint}</li>
-                          <li><TiTick style={{ color: 'blue' }} />{item?.fourthPoint}</li>
-                          <li><TiTick style={{ color: 'blue' }} />{item?.fifthPoint}</li>
-                          <li><TiTick style={{ color: 'blue' }} />{item?.sixthPoint}</li>
-                        </ul>
-                      </div>
-                      <div className="bottom-button" >
-                        <Button onClick={handeClick} >{item.button}</Button>
-                      </div>
-                    </div>
-                  </Col>
+                  <>
+                    <Row className="cards-wrapper">
+                      <Col key={index} >
+                        <div className="price-card1" >
+                          <div className={item.id === 0 ? 'basic-title1' : item.id === 1 ? 'basic-title2' : item.id === 2 ? 'basic-title3' : ""}>
+                            <b>{item?.title}</b>
+                            <p>{item?.subTitle}</p>
+                          </div>
+                          <p className="border-pera">{item?.description}</p>
+                          <div className="content-title" >
+                            <ul>
+                              <li><TiTick style={{ color: 'blue' }} />{item?.firstPoint}</li>
+                              <li><TiTick style={{ color: 'blue' }} />{item?.secondPoint}</li>
+                              <li><TiTick style={{ color: 'blue' }} />{item?.thirdPoint}</li>
+                              <li><TiTick style={{ color: 'blue' }} />{item?.fourthPoint}</li>
+                              <li><TiTick style={{ color: 'blue' }} />{item?.fifthPoint}</li>
+                              <li><TiTick style={{ color: 'blue' }} />{item?.sixthPoint}</li>
+                            </ul>
+                          </div>
+                          <div className="bottom-button" >
+                            <Button onClick={handeClick} >{item.button}</Button>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </>
                 )
-              }) : ""
+              })
             }
-          </Row>
-          {/* </Slider> */}
+          </Slider>
           <Row>
             <Col>
               <p className="bottom-heading">All Plans include one Estimation team member. Contact support for additional requirements</p>

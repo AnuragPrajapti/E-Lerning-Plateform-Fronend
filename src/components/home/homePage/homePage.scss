@@ -2,6 +2,12 @@
   background-color: #174570;
 
   .left-pera-content {
+    @media screen and (max-width : 768px) {
+        padding-left: 20px;
+        .pera-heading {
+          font-size: 34px !important;
+        }
+    }
     .pera-heading {
       color: white;
       font-size: 38px;

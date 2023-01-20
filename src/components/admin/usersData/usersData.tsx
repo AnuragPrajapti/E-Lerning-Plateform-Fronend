@@ -54,13 +54,13 @@ const columns = (clickHandler: any) => ([
   },
   {
     name: 'Block',
-    cell: (row : any) => <BiBlock onClick={() => clickHandler(row._id)}
+    cell: (row: any) => <BiBlock onClick={() => clickHandler(row._id)}
       style={{ fontSize: "24px", color: "red", alignItems: "center" }} />,
     width: '100px',
   },
   {
     name: 'UnBlock',
-    cell: (row : any) => <CgUnblock onClick={() => clickHandler(row._id)}
+    cell: (row: any) => <CgUnblock onClick={() => clickHandler(row._id)}
       style={{ fontSize: "24px", color: "green", alignItems: "center" }} />,
     width: '100px',
   },
@@ -107,8 +107,8 @@ const UsersData = () => {
     }
   }, [getAllUsersMessage])
 
-  const handleClick = (id : any ) => {
-    console.log(111,id);
+  const handleClick = (id: any) => {
+    console.log(111, id);
   }
 
   return (
