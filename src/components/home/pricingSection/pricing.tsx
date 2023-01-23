@@ -65,8 +65,8 @@ const PricingSection = () => {
               PricingData?.map((item, index) => {
                 return (
                   <>
-                    <Row className="cards-wrapper">
-                      <Col key={index} >
+                    <Row className="cards-wrapper" key={index} >
+                      <Col>
                         <div className="price-card1" >
                           <div className={item.id === 0 ? 'basic-title1' : item.id === 1 ? 'basic-title2' : item.id === 2 ? 'basic-title3' : ""}>
                             <b>{item?.title}</b>

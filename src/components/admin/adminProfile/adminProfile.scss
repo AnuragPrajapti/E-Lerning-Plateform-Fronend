@@ -1,65 +1,103 @@
-.wrapper{
-background-image: url('../../../assets/admin/join-background.jpg');
-height: 100%;
-width: 100%;
-display: flex;
-background-size: cover;
-background-repeat: no-repeat;
-color: aliceblue;
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+  .header-section {
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-family: fangsong;
+      letter-spacing: 1.2px;
+      border-bottom: 2px solid;
+    }
+
+  }
+
+  .content-area {
+    h3 {
+      font-style: italic;
+      font-family: math;
+      letter-spacing: .1rem;
+    }
+
+    h4 {
+      float: right;
+      font-style: italic;
+      font-family: math;
+      letter-spacing: .1rem;
+    }
+
+    h5 {
+      margin-top: 6rem;
+      font-style: normal;
+      line-height: 0px;
+      color: #3e3e3e;
+      font-family: Libre Baskerville;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    p {
+      color: black;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: .02em;
+      margin-left: 1rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .admin-details {
+    
+  }
 
 
-h3 {
-  margin-top: 10px;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-family: fangsong;
-  letter-spacing: 1.2px;
-  border-bottom: 2px solid;
-  } 
+  .profile {
 
-  .profileRow{
-
-       .col{
-        flex: 1 0;
-       }
-    .profile{
-
-        display: flex;
+    display: flex;
     border-radius: 100%;
     border: 2px solid #4d6e6d;
     width: 150px;
     height: 150px;
     margin: 18px;
     margin-inline: auto;
-    img{
+
+    img {
       border-radius: 100%;
       height: 150px;
       width: 150px;
       position: absolute;
     }
   }
-  
-  }
-  .inputs{
+
+
+
+  .inputs {
     flex: 1 0;
-    margin:  0 0;
-   input { 
-    display: flex;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    background: no-repeat;
-    color: white;
-    border: none;
-    padding: 10px;
-    border: 1px solid#a7cdd3;
-    margin-top: 35px;
-    display: flex;
-  }
+    margin: 0 0;
+
+    input {
+      display: flex;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      background: no-repeat;
+      // color: white;
+      border: none;
+      padding: 10px;
+      border: 1px solid#a7cdd3;
+      margin-top: 35px;
+      display: flex;
+    }
 
   }
-  .button{
+
+  .button {
     color: white;
     background-color: #0a3761;
     border-radius: 6px;

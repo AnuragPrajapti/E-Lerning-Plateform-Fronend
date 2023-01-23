@@ -80,9 +80,11 @@ export const getDeleteUserProfile: any = createAsyncThunk(
     "auth/getDeleteUserProfile",
     async (id, { fulfillWithValue, rejectWithValue }) => {
         const userToken: any | null = JSON.parse(localStorage.getItem('usersId')!);
+        const adminToken : any | null = JSON.parse(localStorage.getItem("authToken")!)
+        console.log("6555",adminToken);
         const config = {
             headers: {
-                Authorization: `Bearer ${userToken?.token}`
+                Authorization: `Bearer ${userToken?.token ? userToken?.token : adminToken}`
             }
         }
         const response = await axios.delete(`${process.env.REACT_APP_API_KEY}/user/delete/${id}`, config)
