@@ -21,7 +21,7 @@ const columns = (clickHandler: any) => ([
   },
   {
     name: 'Profile_Picture',
-    cell: (row: any) => <img src={row.image} width={50} alt={row.name} />,
+    cell: (row: any) => <img src={row.image} width={50}  style={{ padding : "7px" ,  height : "50px" }} alt={row.name} />,
     selector: (row: any) => row.coverimage,
     width: '100px'
   },
@@ -58,19 +58,19 @@ const columns = (clickHandler: any) => ([
   {
     name: 'Block',
     cell: (row: any) => <BiBlock onClick={() => clickHandler(row?.email)}
-      style={{ fontSize: "24px", color: "red", alignItems: "center" , marginLeft : "10px"}} />,
+      style={{ fontSize: "24px", color: "red", alignItems: "center", marginLeft: "10px" }} />,
     width: '100px',
   },
-  { 
+  {
     name: 'UnBlock',
     cell: (row: any) => <CgUnblock onClick={() => clickHandler(row?.email)}
-      style={{ fontSize: "24px", color: "green", alignItems: "center" , marginLeft : "15px" }} />,
+      style={{ fontSize: "24px", color: "green", alignItems: "center", marginLeft: "15px" }} />,
     width: '100px',
   },
-  { 
+  {
     name: 'Delete-User',
     cell: (row: any) => <AiFillDelete onClick={() => clickHandler(row?._id)}
-      style={{ fontSize: "24px", color: "red", alignItems: "center" , marginLeft : "25px" }} />,
+      style={{ fontSize: "24px", color: "red", alignItems: "center", marginLeft: "25px" }} />,
     width: '100px',
   },
   // {
@@ -104,7 +104,8 @@ const UsersData = () => {
   const dispatch = useDispatch();
   const getAllUsersMessage = useAppSelector(state => state?.authUserReducer?.getUserMessage)
   const allUsersData = useAppSelector(state => state?.authUserReducer?.AllUserData?.details)
-  const isLoading: boolean = useAppSelector(state => state?.authUserReducer?.loading)
+  const isLoading : boolean = useAppSelector(state => state?.authUserReducer?.loading)
+  const [ loader , setLoader ] = useState(isLoading)
   const [filterData, setFilterData] = useState<IRegister | null>();
   const [inpval, setInpVal] = useState<any>({
     name: "",
@@ -122,14 +123,14 @@ const UsersData = () => {
   }, [getAllUsersMessage])
 
   const handleClick = (data: any) => {
-   dispatch(getDeleteUserProfile(data))
+    dispatch(getDeleteUserProfile(data))
   }
 
   const handelSearch = () => {
     const newDAta = allUsersData.filter((value: IRegister) => {
-      return value?.firstName === inpval?.name ||  
+      return value?.firstName.toLocaleLowerCase() === inpval?.name.toLocaleLowerCase() ||  
          value?.email === inpval?.email || 
-         value?.phone ===  JSON.parse(inpval?.phone)    ;
+         value?.phone == inpval?.phone;
     })
     setFilterData(newDAta);
   }
@@ -143,9 +144,13 @@ const UsersData = () => {
     setFilterData(null);
   }
 
-  const handleChange = ({ selectedRows } : IRegister | any) => {
+  const handleChange = ({ selectedRows }: IRegister | any) => {
     console.log(selectedRows);
   };
+
+  setTimeout(()=>{
+    setLoader(false);
+  },10000)
 
   return (
     <Container>
@@ -155,42 +160,43 @@ const UsersData = () => {
           <Form >
             <Row className='search-bar-wrapper' >
               <Col className='search-bar' >
-                <input 
-                   type="text" 
-                   className='form-control' 
-                   placeholder='search_by_name' 
-                   value={inpval.name}
-                   onChange={(e) => setInpVal({ ...inpval, name: e.target.value })} 
-                   />
-                <input 
-                   type="email" 
-                   className='form-control'
-                   placeholder='search_by_email'
-                   value={inpval.email}
-                   onChange={(e) => setInpVal({ ...inpval, email: e.target.value })} 
-                   />
-                <input 
-                   type="number" 
-                   className='form-control' 
-                   value={inpval.phone}
-                   placeholder='search_by_phone' 
-                   onChange={(e) => setInpVal({ ...inpval, phone: e.target.value })} 
-                   />
+                <input
+                  type="text"
+                  className='form-control'
+                  placeholder='search_by_name'
+                  value={inpval.name}
+                  onChange={(e) => setInpVal({ ...inpval, name: e.target.value })}
+                />
+                <input
+                  type="email"
+                  className='form-control'
+                  placeholder='search_by_email'
+                  value={inpval.email}
+                  onChange={(e) => setInpVal({ ...inpval, email: e.target.value })}
+                />
+                <input
+                  type="number"
+                  className='form-control'
+                  value={inpval.phone}
+                  placeholder='search_by_phone'
+                  onChange={(e) => setInpVal({ ...inpval, phone: e.target.value })}
+                />
               </Col>
               <Col className='search-bar-button' >
-                <Button onClick={ ()=>  handelSearch()} >Search</Button>
-                <Button onClick={()=> handleReset()}  >Reset</Button>
+                <Button onClick={() => handelSearch()} >Search</Button>
+                <Button onClick={() => handleReset()}  >Reset</Button>
               </Col>
             </Row>
           </Form>
           {
-            isLoading === true ? <Spinner variant='border' />
+            loader === true ? <Spinner variant='border' />
               : <DataTable
                 columns={columns(handleClick)}
                 data={filterData ? filterData : allUsersData}
                 pagination
                 selectableRows
                 onSelectedRowsChange={handleChange}
+                className="userds-table"
               />
           }
         </Col>

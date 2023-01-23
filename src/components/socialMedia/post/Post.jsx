@@ -1,5 +1,4 @@
 import "./post.css";
-import { MoreVert } from "@material-ui/icons";
 import { useState } from "react";
 import { Users } from "../socialMediaJonData";
 import Like from '../../../assets/socialMedia/like.png'
@@ -29,7 +28,7 @@ export default function Post({ post }) {
             <span className="postDate">{post.date}</span>
           </div>
           <div className="postTopRight">
-            <MoreVert />
+            {/* <MoreVert /> */}
           </div>
         </div>
         <div className="postCenter">

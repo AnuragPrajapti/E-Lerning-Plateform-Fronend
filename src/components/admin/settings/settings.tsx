@@ -12,6 +12,8 @@ const Settings = () => {
   const [visibleOptions, setVisibleOptions] = useState(options);
   const adminInfo = useAppSelector(state => state?.authAdminReducer?.adminData?.data)
   const navigate = useNavigate()
+
+
   const onChange = (e: any) => {
     e.preventDefault();
     const value = e.target.value
@@ -24,7 +26,8 @@ const Settings = () => {
 
     visibleOptions.forEach((option, index) => {
       const foundOptions = option.values.filter(item => {
-        return item.name.toLocaleLowerCase().search(value.trim().toLowerCase()) !== -1 || item.description.toLocaleLowerCase().search(value.trim().toLowerCase()) !== -1;
+        return item.name.toLocaleLowerCase().search(value.trim().toLowerCase()) !== -1 ||
+          item.description.toLocaleLowerCase().search(value.trim().toLowerCase()) !== -1;
       })
 
       returnedItem[index] = {
@@ -80,13 +83,13 @@ const Settings = () => {
                 <li className='list-group-item' >
                   <p>{adminInfo?.firstName}{" "}{adminInfo?.lastName}</p>
                   <p>{adminInfo?.email}</p>
-                  <span><FaEdit onClick={()=> navigate('/admin_index/admin-profile')} /></span>
+                  <span><FaEdit onClick={() => navigate('/admin_index/admin-profile')} /></span>
                 </li>
               </ul>
             </div>
           </Col>
           <Col>
-          <div className='middle-section' >
+            <div className='middle-section' >
               <ul className='list-group'>
                 <li className='list-group-item' >
                   <p>Phone : {adminInfo?.phone}</p>
@@ -97,7 +100,7 @@ const Settings = () => {
             </div>
           </Col>
         </Row>
-{/* 
+        {/* 
         <div>
           {
             visibleOptions.map(option =>

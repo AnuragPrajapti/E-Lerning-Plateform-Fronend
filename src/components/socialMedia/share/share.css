@@ -52,10 +52,10 @@
     align-items: center;
     margin-right: 15px;
     cursor: pointer;
-}
-
-.shareIcon{
-    font-size: 18px;
+  }
+  
+  .shareIcon{
+    font-size: 24px;
     margin-right: 3px;
 }
 
