@@ -1,13 +1,16 @@
-import { useEffect } from 'react'
-import { Container, Row, Col, Spinner, Button } from 'react-bootstrap';
+import { useEffect, useState } from 'react'
+import { Container, Row, Col, Spinner, Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { getAllUsersData } from '../../../services/authUser/userSlice';
+import { getAllUsersData, getDeleteUserProfile } from '../../../services/authUser/userSlice';
 import { useAppSelector } from '../../../services/useTypeSelector';
 import './usersData.scss'
 import DataTable from 'react-data-table-component';
 import { BiBlock } from "react-icons/bi";
 import { CgUnblock } from "react-icons/cg";
+import { IRegister } from '../../../interface/interface';
+import { AiFillDelete } from "react-icons/ai";
+
 
 const columns = (clickHandler: any) => ([
   {
@@ -18,7 +21,7 @@ const columns = (clickHandler: any) => ([
   },
   {
     name: 'Profile_Picture',
-    cell: (row: any) => <img src={row.image} width={50} alt={row.name}></img>,
+    cell: (row: any) => <img src={row.image} width={50} alt={row.name} />,
     selector: (row: any) => row.coverimage,
     width: '100px'
   },
@@ -41,7 +44,7 @@ const columns = (clickHandler: any) => ([
     sortable: true
   },
   {
-    name: 'Contact_Number',
+    name: 'Contact_phone',
     selector: (row: any) => row.phone,
     width: '150px',
     sortable: true
@@ -54,14 +57,20 @@ const columns = (clickHandler: any) => ([
   },
   {
     name: 'Block',
-    cell: (row: any) => <BiBlock onClick={() => clickHandler(row._id)}
-      style={{ fontSize: "24px", color: "red", alignItems: "center" }} />,
+    cell: (row: any) => <BiBlock onClick={() => clickHandler(row?.email)}
+      style={{ fontSize: "24px", color: "red", alignItems: "center" , marginLeft : "10px"}} />,
     width: '100px',
   },
-  {
+  { 
     name: 'UnBlock',
-    cell: (row: any) => <CgUnblock onClick={() => clickHandler(row._id)}
-      style={{ fontSize: "24px", color: "green", alignItems: "center" }} />,
+    cell: (row: any) => <CgUnblock onClick={() => clickHandler(row?.email)}
+      style={{ fontSize: "24px", color: "green", alignItems: "center" , marginLeft : "15px" }} />,
+    width: '100px',
+  },
+  { 
+    name: 'Delete-User',
+    cell: (row: any) => <AiFillDelete onClick={() => clickHandler(row?._id)}
+      style={{ fontSize: "24px", color: "red", alignItems: "center" , marginLeft : "25px" }} />,
     width: '100px',
   },
   // {
@@ -96,7 +105,12 @@ const UsersData = () => {
   const getAllUsersMessage = useAppSelector(state => state?.authUserReducer?.getUserMessage)
   const allUsersData = useAppSelector(state => state?.authUserReducer?.AllUserData?.details)
   const isLoading: boolean = useAppSelector(state => state?.authUserReducer?.loading)
-
+  const [filterData, setFilterData] = useState<IRegister | null>();
+  const [inpval, setInpVal] = useState<any>({
+    name: "",
+    email: "",
+    phone: "",
+  })
   useEffect(() => {
     dispatch(getAllUsersData())
     if (getAllUsersMessage) {
@@ -107,22 +121,76 @@ const UsersData = () => {
     }
   }, [getAllUsersMessage])
 
-  const handleClick = (id: any) => {
-    console.log(111, id);
+  const handleClick = (data: any) => {
+   dispatch(getDeleteUserProfile(data))
   }
+
+  const handelSearch = () => {
+    const newDAta = allUsersData.filter((value: IRegister) => {
+      return value?.firstName === inpval?.name ||  
+         value?.email === inpval?.email || 
+         value?.phone ===  JSON.parse(inpval?.phone)    ;
+    })
+    setFilterData(newDAta);
+  }
+
+  const handleReset = () => {
+    setInpVal({
+      name: "",
+      email: "",
+      phone: "",
+    })
+    setFilterData(null);
+  }
+
+  const handleChange = ({ selectedRows } : IRegister | any) => {
+    console.log(selectedRows);
+  };
 
   return (
     <Container>
       <Row className='users-details-wrappers' >
         <Col>
           <p>Users Details</p>
+          <Form >
+            <Row className='search-bar-wrapper' >
+              <Col className='search-bar' >
+                <input 
+                   type="text" 
+                   className='form-control' 
+                   placeholder='search_by_name' 
+                   value={inpval.name}
+                   onChange={(e) => setInpVal({ ...inpval, name: e.target.value })} 
+                   />
+                <input 
+                   type="email" 
+                   className='form-control'
+                   placeholder='search_by_email'
+                   value={inpval.email}
+                   onChange={(e) => setInpVal({ ...inpval, email: e.target.value })} 
+                   />
+                <input 
+                   type="number" 
+                   className='form-control' 
+                   value={inpval.phone}
+                   placeholder='search_by_phone' 
+                   onChange={(e) => setInpVal({ ...inpval, phone: e.target.value })} 
+                   />
+              </Col>
+              <Col className='search-bar-button' >
+                <Button onClick={ ()=>  handelSearch()} >Search</Button>
+                <Button onClick={()=> handleReset()}  >Reset</Button>
+              </Col>
+            </Row>
+          </Form>
           {
             isLoading === true ? <Spinner variant='border' />
               : <DataTable
                 columns={columns(handleClick)}
-                data={allUsersData}
+                data={filterData ? filterData : allUsersData}
                 pagination
                 selectableRows
+                onSelectedRowsChange={handleChange}
               />
           }
         </Col>

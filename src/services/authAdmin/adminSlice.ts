@@ -11,7 +11,6 @@ export const getLoginAdmin = createAsyncThunk(
         localStorage.setItem('authToken', JSON.stringify(response?.data?.token))
         return response.data;
       }
-
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.massege);
     }

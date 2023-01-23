@@ -11,13 +11,33 @@
         font-weight: 100;
     }
 
+    .search-bar-wrapper {
+        .search-bar {
+            display: flex;
+            input{
+                margin-left: 20px;
+            }
+        }
+
+        .search-bar-button {
+            Button {
+                margin-left: 20px;
+                width: 150px;
+                border-radius: 0px;
+                background-color: #0a3761;
+            }
+        }
+    }
+
     .userds-table {
         background-color: transparent;
-        thead{
-            th{
+
+        thead {
+            th {
                 text-align: center;
             }
         }
+
         tbody {
             img {
                 width: 50px;
@@ -33,13 +53,14 @@
                 font-family: auto;
             }
 
-         .form-select:focus {
-            border-color: white ;
-            outline: 0;
-            box-shadow : 0px !important;
-         }
-            #select{
-               border: none !important;
+            .form-select:focus {
+                border-color: white;
+                outline: 0;
+                box-shadow: 0px !important;
+            }
+
+            #select {
+                border: none !important;
             }
         }
     }
