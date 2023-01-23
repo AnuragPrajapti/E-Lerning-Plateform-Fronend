@@ -29,6 +29,7 @@
 .sidebarListItem {
   display: flex;
   align-items: center;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
