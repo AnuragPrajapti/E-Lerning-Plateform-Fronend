@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react"
+import { FormEvent, useState } from "react"
 import { useMultistepForm } from "./useMultipleForm"
 import { IRegister } from "../../interface/interface"
 import AccountForm from "./userDetail"
@@ -64,9 +64,6 @@ const Signup = () => {
       state: "",
       zip: "",
     })
-  }
-
-  useEffect(() => {
     if (getRegisterSuccessMessage) {
       toast.success(getRegisterSuccessMessage, {
         position: 'top-center',
@@ -75,8 +72,8 @@ const Signup = () => {
         navigate('/signin');
       }, 4000)
     }
-  }, [getRegisterSuccessMessage])
-
+  }
+  
   //Spinner Functionality
   setTimeout(() => {
     setLoader(false);

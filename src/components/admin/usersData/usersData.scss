@@ -31,7 +31,11 @@
 
     .userds-table {
         background-color: transparent;
-
+        color: #0a3761 !important;
+        font-family: auto;
+        letter-spacing: .1rem;
+        font-size: 20px;
+        font-weight: 500;
         thead {
             th {
                 text-align: center;
