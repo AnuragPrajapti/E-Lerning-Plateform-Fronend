@@ -1,7 +1,7 @@
 import "./share.css";
 import { MdOutlinePermMedia, MdLabelImportant, MdEditLocation } from "react-icons/md";
 import { BsFillEmojiSmileFill } from "react-icons/bs";
-
+import Img1 from '../../../assets/socialMedia/person/1.jpeg'
 
 
 export default function Share() {
@@ -9,7 +9,7 @@ export default function Share() {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="/assets/person/1.jpeg" alt="" />
+          <img className="shareProfileImg" src={Img1} alt="" />
           <input
             placeholder="What's in your mind Safak?"
             className="shareInput"
@@ -27,11 +27,11 @@ export default function Share() {
               <span className="shareOptionText">Tag</span>
             </div>
             <div className="shareOption">
-              <MdEditLocation  className="shareIcon" style={{ color: "green" }} />
+              <MdEditLocation className="shareIcon" style={{ color: "green" }} />
               <span className="shareOptionText">Location</span>
             </div>
             <div className="shareOption">
-              <BsFillEmojiSmileFill  className="shareIcon" style={{ color: "darkgoldenrod" }} />
+              <BsFillEmojiSmileFill className="shareIcon" style={{ color: "darkgoldenrod" }} />
               <span className="shareOptionText">Feelings</span>
             </div>
           </div>

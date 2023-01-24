@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { useMultistepForm } from "./useMultipleForm"
 import { IRegister } from "../../interface/interface"
 import AccountForm from "./userDetail"
@@ -22,6 +22,7 @@ const Signup = () => {
   const dispatch = useAppDispatch();
   const getRegisterSuccessMessage = useAppSelector(state => state?.authReducer?.message);
   const [loader, setLoader] = useState<boolean>(false);
+  const [ message , setMessage ] = useState<boolean>(false);
   const [data, setData] = useState<IRegister>({
     image: "",
     firstName: "",
@@ -64,16 +65,23 @@ const Signup = () => {
       state: "",
       zip: "",
     })
-    if (getRegisterSuccessMessage) {
+    setMessage(true)
+    
+  }
+  
+  useEffect(() => {
+    if (getRegisterSuccessMessage && message === true) {
       toast.success(getRegisterSuccessMessage, {
         position: 'top-center',
       })
       setTimeout(() => {
         navigate('/signin');
+        setMessage(false);
       }, 4000)
     }
-  }
+  }, [getRegisterSuccessMessage])
   
+
   //Spinner Functionality
   setTimeout(() => {
     setLoader(false);

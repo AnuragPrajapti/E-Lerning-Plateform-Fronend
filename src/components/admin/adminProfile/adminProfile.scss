@@ -52,57 +52,47 @@
   }
 
   .admin-details {
-    
-  }
-
-
-  .profile {
-
-    display: flex;
-    border-radius: 100%;
-    border: 2px solid #4d6e6d;
-    width: 150px;
-    height: 150px;
-    margin: 18px;
-    margin-inline: auto;
-
-    img {
+    margin-top: 40px;
+    .profile {
+      display: flex;
       border-radius: 100%;
-      height: 150px;
       width: 150px;
-      position: absolute;
-    }
-  }
-
-
-
-  .inputs {
-    flex: 1 0;
-    margin: 0 0;
-
-    input {
-      display: flex;
-      margin: 0;
-      font-family: inherit;
-      font-size: inherit;
-      line-height: inherit;
-      background: no-repeat;
-      // color: white;
-      border: none;
-      padding: 10px;
-      border: 1px solid#a7cdd3;
-      margin-top: 35px;
-      display: flex;
+      height: 150px;
+      margin: 0px auto;
+      img {
+        border-radius: 100%;
+        height: 150px;
+        width: 150px;
+        position: absolute;
+      }
     }
 
+    .field-area {
+      input {
+        margin: 14px 0px 10px 30px;
+        font-family: inherit;
+        width: 230px;
+        font-size: inherit;
+        background: no-repeat;
+        padding: 10px;
+        border: 2px solid #dadee2;
+        border-bottom-left-radius: 28px;
+        border-bottom-right-radius: 28px;
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+      }
+    }
+    .button {
+      color: white;
+      background-color: #0a3761;
+      border-radius: 6px;
+      height: 44px;
+      width: 100%;
+      margin: 20px 0px 40px 32px;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+    }
   }
-
-  .button {
-    color: white;
-    background-color: #0a3761;
-    border-radius: 6px;
-    height: 44px;
-    width: 150px;
-  }
-
 }

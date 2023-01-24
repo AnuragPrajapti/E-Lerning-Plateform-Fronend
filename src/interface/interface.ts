@@ -26,7 +26,7 @@ export interface IinitialState {
     loginUser: null | any;
     loading: boolean;
     error: boolean;
-    message : string;
+    message : string | boolean;
     updateMessage : string;
     userData : any | [];
     errorMessage : string;
