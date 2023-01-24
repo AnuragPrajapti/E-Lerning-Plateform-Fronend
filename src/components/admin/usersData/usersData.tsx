@@ -21,7 +21,7 @@ const columns = (clickHandler: any) => ([
   },
   {
     name: 'Profile_Picture',
-    cell: (row: any) => <img src={row.image} width={50}  style={{ padding : "7px" ,  height : "50px" }} alt={row.name} />,
+    cell: (row: any) => <img src={row.image} width={50} style={{ padding: "7px", height: "50px" }} alt={row.name} />,
     selector: (row: any) => row.coverimage,
     width: '100px'
   },
@@ -104,8 +104,9 @@ const UsersData = () => {
   const dispatch = useDispatch();
   const getAllUsersMessage = useAppSelector(state => state?.authUserReducer?.getUserMessage)
   const allUsersData = useAppSelector(state => state?.authUserReducer?.AllUserData?.details)
-  const isLoading : boolean = useAppSelector(state => state?.authUserReducer?.loading)
-  const [ loader , setLoader ] = useState(isLoading)
+  const isLoading: boolean = useAppSelector(state => state?.authUserReducer?.loading)
+  const getDeleteUserMessage = useAppSelector(state => state?.authUserReducer?.getUserDeleteMessage)
+  const [loader, setLoader] = useState(isLoading)
   const [filterData, setFilterData] = useState<IRegister | null>();
   const [inpval, setInpVal] = useState<any>({
     name: "",
@@ -124,13 +125,22 @@ const UsersData = () => {
 
   const handleClick = (data: any) => {
     dispatch(getDeleteUserProfile(data))
+    if (getDeleteUserMessage) {
+      toast.success(getDeleteUserMessage, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+    }
+    setTimeout(()=>{
+      dispatch(getAllUsersData())
+    },2000)
   }
 
   const handelSearch = () => {
     const newDAta = allUsersData.filter((value: IRegister) => {
-      return value?.firstName.toLocaleLowerCase() === inpval?.name.toLocaleLowerCase() ||  
-         value?.email === inpval?.email || 
-         value?.phone == inpval?.phone;
+      return value?.firstName.toLocaleLowerCase() === inpval?.name.toLocaleLowerCase() ||
+        value?.email === inpval?.email ||
+        value?.phone == inpval?.phone;
     })
     setFilterData(newDAta);
   }
@@ -148,9 +158,9 @@ const UsersData = () => {
     console.log(selectedRows);
   };
 
-  setTimeout(()=>{
+  setTimeout(() => {
     setLoader(false);
-  },10000)
+  }, 10000)
 
   return (
     <Container>
@@ -159,7 +169,7 @@ const UsersData = () => {
           <p>Users Details</p>
           <Form >
             <Row className='search-bar-wrapper' >
-              <Col className='search-bar' >
+              <Col className='search-bar' sm={6} lg={6} md={6} >
                 <input
                   type="text"
                   className='form-control'
@@ -182,7 +192,7 @@ const UsersData = () => {
                   onChange={(e) => setInpVal({ ...inpval, phone: e.target.value })}
                 />
               </Col>
-              <Col className='search-bar-button' >
+              <Col className='search-bar-button' sm={6} lg={6} md={6} >
                 <Button onClick={() => handelSearch()} >Search</Button>
                 <Button onClick={() => handleReset()}  >Reset</Button>
               </Col>

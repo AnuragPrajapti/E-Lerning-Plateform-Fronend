@@ -3,9 +3,9 @@ import { useAppDispatch, useAppSelector } from '../../../services/useTypeSelecto
 import { getAdminData, getUpdateAdminProfile } from '../../../services/authAdmin/adminSlice';
 import './adminProfile.scss'
 import { Col, Container, Row, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import { useFileUpload } from 'use-file-upload'
 import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 
 const AdminProfile = () => {
   const dispatch = useAppDispatch();
@@ -82,7 +82,7 @@ const AdminProfile = () => {
         <Row>
           <Col>
             <div className='content-area' >
-              <h3>Welcome to the E-Lerning-Plateform</h3>
+              <h3>Welcome to the E-Learning-Platform</h3>
               <h4>Lets start for make a new world</h4>
 
               <h5>Understanding You</h5>
@@ -109,247 +109,158 @@ const AdminProfile = () => {
             </div>
           </Col>
           <Col>
-            <div className='admin-details' >
-              <Form onSubmit={handleSubmit(onsubmit)} id='formData' >
-                <Row className='profileRow'>
-                  <Col >
-                    <div className='profile'>
-                      <img id='userProfile' src={image?.source || adminInfo?.image} alt="" onClick={() => selectFile()} />
+            <Container>
+              <Row>
+                <div className='admin-details' >
+                  <Form onSubmit={handleSubmit(onsubmit)} id='formData' >
+                    <Row className='profileRow'>
+                      <Col>
+                        <div className='profile'>
+                          <img id='userProfile'
+                            src={image?.source || adminInfo?.image} alt=""
+                            onClick={() => selectFile()} />
+                        </div>
+                      </Col>
+                    </Row>
+                    <div className='field-area' >
+                      <Row>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            type="text"
+                            placeholder="First Name"
+                            {...register("firstName", {
+                              required: true,
+                            })}
+                          />
+                        </Col>
+                        <Col lg={6}>
+                          <input
+                            className="form-control"
+                            placeholder="Last Name"
+                            type="text"
+                            {...register("lastName", {
+                              required: true,
+                            })}
+                            required
+                          />
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            placeholder="Email"
+                            type="text"
+                            {...register("email", {
+                              required: true,
+                            })}
+                            disabled
+                          />
+                        </Col>
+                        <Col lg={6}>
+                          <input
+                            className="form-control"
+                            placeholder='Number'
+                            type="number"
+                            {...register("phone", {
+                              required: true,
+                            })}
+                            required
+                          />
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            placeholder='Age'
+                            type="text"
+                            {...register("age", {
+                              required: true,
+                            })}
+                            required
+                          />
+                        </Col>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            placeholder='Gender'
+                            type="text"
+                            {...register("gender", {
+                              required: true,
+                            })}
+                            required
+                          />
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            placeholder="Address"
+                            type="text"
+                            {...register("address", {
+                              required: true,
+                            })}
+                            required
+                          />
+                        </Col>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            placeholder='City'
+                            type="text"
+                            {...register("city", {
+                              required: true,
+                            })}
+                            required
+                          />
+
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            placeholder="State"
+                            type="text"
+                            {...register("state", {
+                              required: true,
+                            })}
+                            required
+                          />
+
+                        </Col>
+                        <Col lg={6} >
+                          <input
+                            className="form-control"
+                            type="number"
+                            placeholder='PinCode'
+                            {...register("zip", {
+                              required: true,
+                            })}
+                            required
+                          />
+                        </Col>
+                      </Row>
                     </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col >
-                    <div className='inputs' >
-                      <input
-                        type="text"
-                        placeholder="First Name"
-                        {...register("firstName", {
-                          required: true,
-                        })}
-                      />
-
-                      <input
-                        placeholder="Email"
-                        type="text"
-                        {...register("email", {
-                          required: true,
-                        })}
-                        required
-                        disabled
-                      />
-
-                      <input
-                        placeholder="Age"
-                        type="text"
-                        {...register("age", {
-                          required: true,
-                        })}
-                        required
-                      />
-
-                      <input
-                        placeholder="Address"
-                        type="text"
-                        {...register("address", {
-                          required: true,
-                        })}
-                        required
-                      />
-
-                      <input
-                        placeholder="State"
-                        type="text"
-                        {...register("state", {
-                          required: true,
-                        })}
-                        required
-                      />
-
-                    </div>
-
-                  </Col>
-                  <Col >
-                    <div className='inputs'>
-                      <input
-                        placeholder="Last Name"
-                        type="text"
-                        {...register("lastName", {
-                          required: true,
-                        })}
-                        required
-                      />
-
-                      <input
-                        placeholder='Gender'
-                        type="text"
-                        {...register("gender", {
-                          required: true,
-                        })}
-                        required
-                      />
-                      <input
-                        placeholder='Number'
-                        type="number"
-                        {...register("phone", {
-                          required: true,
-                        })}
-                        required
-                      />
-                      <input
-                        placeholder='City'
-                        type="text"
-                        {...register("city", {
-                          required: true,
-                        })}
-                        required
-                      />
-
-                      <input
-                        type="number"
-                        placeholder='PinCode'
-                        {...register("zip", {
-                          required: true,
-                        })}
-                        required
-                      />
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <div className='justify-content-center d-flex' >
-                      <button className='button' >Update</button>
-                    </div>
-                  </Col>
-                </Row>
-              </Form>
-            </div>
+                    <Row>
+                    </Row>
+                    <Row>
+                      <Col  >
+                        <div className='justify-content-center d-flex' >
+                          <button className='button' >Update</button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Form>
+                </div>
+              </Row>
+            </Container>
           </Col>
         </Row>
       </Container>
-
-      {/* <Container>
-        <Row>
-          <Col lg={12} >
-            <h3>Admin Profile!</h3>
-          </Col>
-        </Row>
-        <Form onSubmit={handleSubmit(onsubmit)} id='formData' >
-          <Row className='profileRow'>
-            <Col >
-              <div className='profile'>
-                <img id='userProfile' src={image?.source || adminInfo?.image} alt="" onClick={() => selectFile()} />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col >
-              <div className='inputs' >
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  {...register("firstName", {
-                    required: true,
-                  })}
-                />
-
-                <input
-                  placeholder="Email"
-                  type="text"
-                  {...register("email", {
-                    required: true,
-                  })}
-                  required
-                  disabled
-                />
-
-                <input
-                  placeholder="Age"
-                  type="text"
-                  {...register("age", {
-                    required: true,
-                  })}
-                  required
-                />
-
-                <input
-                  placeholder="Address"
-                  type="text"
-                  {...register("address", {
-                    required: true,
-                  })}
-                  required
-                />
-
-                <input
-                  placeholder="State"
-                  type="text"
-                  {...register("state", {
-                    required: true,
-                  })}
-                  required
-                />
-
-              </div>
-
-            </Col>
-            <Col >
-              <div className='inputs'>
-                <input
-                  placeholder="Last Name"
-                  type="text"
-                  {...register("lastName", {
-                    required: true,
-                  })}
-                  required
-                />
-
-                <input
-                  placeholder='Gender'
-                  type="text"
-                  {...register("gender", {
-                    required: true,
-                  })}
-                  required
-                />
-                <input
-                  placeholder='Number'
-                  type="number"
-                  {...register("phone", {
-                    required: true,
-                  })}
-                  required
-                />
-                <input
-                  placeholder='City'
-                  type="text"
-                  {...register("city", {
-                    required: true,
-                  })}
-                  required
-                />
-
-                <input
-                  type="number"
-                  placeholder='PinCode'
-                  {...register("zip", {
-                    required: true,
-                  })}
-                  required
-                />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-          <div className='justify-content-center d-flex' >
-            <button className='button' >Update</button>
-          </div>
-            </Col>
-          </Row>
-        </Form>
-      </Container> */}
     </div>
   )
 }

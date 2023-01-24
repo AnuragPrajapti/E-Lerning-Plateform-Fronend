@@ -45,33 +45,40 @@ const Signin = () => {
   const adminEmail = getDataByAdmin?.email ? getDataByAdmin?.email[0] : '';
   const successMessageAdminLogin = useAppSelector(state => state?.authAdminReducer?.adminLogin?.success);
   const successMessageUserLogin = useAppSelector(state => state?.authUserReducer?.message);
+  const [message, setMessage] = useState(false);
   const onSubmit = (data: any) => {
     if (adminEmail === data.email) {
       dispatch(getLoginAdmin(data))
       setLoader(true);
       reset()
-        toast.success(successMessageAdminLogin, {
-          position: 'top-center',
-          autoClose: 1500,
-        })
-      setTimeout(() => { navigate('/admin_index') }, 2000)
-
-
+      setMessage(true)
     } else if (data?.email !== '') {
       dispatch(getLoginUser(data))
       setLoader(true);
       reset()
-      toast.success(successMessageUserLogin, {
-        position: 'top-center',
-        autoClose: 1500,
-      })
-      setTimeout(() => { navigate('/user_details') }, 2000)
-
+      setMessage(true)
     } else {
       alert('user not found please register now')
       navigate('/signup')
     }
   };
+
+  useEffect(() => {
+    if (successMessageAdminLogin && message === true) {
+      toast.success(successMessageAdminLogin, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+      setTimeout(() => { navigate('/admin_index') }, 2000)
+    }
+    if (successMessageUserLogin && message === true) {
+      toast.success(successMessageUserLogin, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+      setTimeout(() => { navigate('/user_details') }, 2000)
+    }
+  }, [successMessageAdminLogin,])
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
@@ -125,8 +132,18 @@ const Signin = () => {
                 ) : (
                   <button className="btn">Login</button>
                 )}
-                <p className='mt-3'>Don't Have an Accout?{"  "}<span><NavLink to="/signup" >Register Now</NavLink></span> </p>
-                <p>Back to home page ?{"  "}<span><NavLink to="/" >Home Page</NavLink></span></p>
+                <p className='mt-3'>
+                  Don't Have an Accout?{"  "}
+                  <span>
+                    <NavLink to="/signup" >Register Now</NavLink>
+                  </span>
+                </p>
+                <p>
+                  Back to home page ?{"  "}
+                  <span>
+                    <NavLink to="/" >Home Page</NavLink>
+                  </span>
+                </p>
               </form>
             </div>
           </Col>
