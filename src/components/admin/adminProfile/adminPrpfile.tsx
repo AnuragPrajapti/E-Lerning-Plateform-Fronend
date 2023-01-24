@@ -23,20 +23,20 @@ const AdminProfile = () => {
     dispatch(getAdminData());
   }, [])
 
-  // useEffect(() => {
-  //   if (getAdminMessage) {
-  //     toast.success(getAdminMessage, {
-  //       position: 'top-center',
-  //       autoClose: 1500,
-  //     })
-  //   }
-  //   if (getErrorAdminMessage) {
-  //     toast.error(getErrorAdminMessage, {
-  //       position: 'top-center',
-  //       autoClose: 1500,
-  //     })
-  //   }
-  // }, [getAdminMessage, getErrorAdminMessage])
+  useEffect(() => {
+    if (getAdminMessage) {
+      toast.success(getAdminMessage, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+    }
+    if (getErrorAdminMessage) {
+      toast.error(getErrorAdminMessage, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+    }
+  }, [getAdminMessage, getErrorAdminMessage])
 
   useEffect(() => {
     if (adminInfo) {
@@ -83,7 +83,7 @@ const AdminProfile = () => {
           <Col>
             <div className='content-area' >
               <h3>Welcome to the E-Learning-Platform</h3>
-              <h4>Lets start for make a new world</h4>
+              <h4>Lets start for make a new world!</h4>
 
               <h5>Understanding You</h5>
               <p>
