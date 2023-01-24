@@ -16,6 +16,7 @@
   }
 
   .content-area {
+    margin-top: 40px;
     h3 {
       font-style: italic;
       font-family: math;
@@ -52,7 +53,6 @@
   }
 
   .admin-details {
-    margin-top: 40px;
     .profile {
       display: flex;
       border-radius: 100%;
@@ -95,4 +95,13 @@
       border-top-right-radius: 28px;
     }
   }
+
+  @media screen and (max-width : 768px ) {
+     .admin-details{
+       .field-area{
+        margin-left: 22px;
+       }
+     }
+  }
+  
 }

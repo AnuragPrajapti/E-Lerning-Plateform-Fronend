@@ -23,20 +23,20 @@ const AdminProfile = () => {
     dispatch(getAdminData());
   }, [])
 
-  // useEffect(() => {
-  //   if (getAdminMessage) {
-  //     toast.success(getAdminMessage, {
-  //       position: 'top-center',
-  //       autoClose: 1500,
-  //     })
-  //   }
-  //   if (getErrorAdminMessage) {
-  //     toast.error(getErrorAdminMessage, {
-  //       position: 'top-center',
-  //       autoClose: 1500,
-  //     })
-  //   }
-  // }, [getAdminMessage, getErrorAdminMessage])
+  useEffect(() => {
+    if (getAdminMessage) {
+      toast.success(getAdminMessage, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+    }
+    if (getErrorAdminMessage) {
+      toast.error(getErrorAdminMessage, {
+        position: 'top-center',
+        autoClose: 1500,
+      })
+    }
+  }, [getAdminMessage, getErrorAdminMessage])
 
   useEffect(() => {
     if (adminInfo) {
@@ -53,10 +53,10 @@ const AdminProfile = () => {
     }
   }, [adminInfo])
 
-  const onsubmit = (data: any) => {
+  const onSubmit = (data: any) => {
     const id = adminInfo?._id;
     const formData: any = new FormData(document.getElementById('formData') as HTMLInputElement | any);
-    formData.append('image', image?.file);
+    formData.append('image', image?.file || adminInfo?.image );
     const updateProfile = { id, formData }
     dispatch(getUpdateAdminProfile(updateProfile))
   }
@@ -83,7 +83,7 @@ const AdminProfile = () => {
           <Col>
             <div className='content-area' >
               <h3>Welcome to the E-Learning-Platform</h3>
-              <h4>Lets start for make a new world</h4>
+              <h4>Lets start for make a new world!</h4>
 
               <h5>Understanding You</h5>
               <p>
@@ -112,7 +112,7 @@ const AdminProfile = () => {
             <Container>
               <Row>
                 <div className='admin-details' >
-                  <Form onSubmit={handleSubmit(onsubmit)} id='formData' >
+                  <Form onSubmit={handleSubmit(onSubmit)} id='formData' >
                     <Row className='profileRow'>
                       <Col>
                         <div className='profile'>
@@ -122,7 +122,7 @@ const AdminProfile = () => {
                         </div>
                       </Col>
                     </Row>
-                    <div className='field-area' >
+                    <div className='field-area'>
                       <Row>
                         <Col lg={6} >
                           <input
@@ -250,7 +250,7 @@ const AdminProfile = () => {
                     <Row>
                       <Col  >
                         <div className='justify-content-center d-flex' >
-                          <button className='button' >Update</button>
+                          <button className='button'>Update</button>
                         </div>
                       </Col>
                     </Row>
