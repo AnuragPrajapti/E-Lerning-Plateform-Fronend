@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useFileUpload } from 'use-file-upload'
 import './user_details.scss'
 import { useAppDispatch, useAppSelector } from '../../services/useTypeSelector';
 import { BiLogOut } from "react-icons/bi";
@@ -94,7 +93,7 @@ const UserDetails = () => {
   }, [getSuccessMessage]);
 
   const navigate = useNavigate();
-  const [file, selectFile] = useFileUpload() as HTMLInputElement | any;
+  const [file, selectFile] = useState() as HTMLInputElement | any;
   const image: any = file;
   const { register, formState: { errors }, setValue, handleSubmit } = useForm<IUserForm>({
     resolver: yupResolver(validationSchema)
