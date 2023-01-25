@@ -10,6 +10,7 @@ import { getDeleteUserProfile, getUpdateUserProfile, getUserDetails } from '../.
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { IUserForm } from '../../interface/interface';
+import { useFileUpload } from 'use-file-upload';
 
 
 const validationSchema = yup.object().shape({
@@ -93,7 +94,7 @@ const UserDetails = () => {
   }, [getSuccessMessage]);
 
   const navigate = useNavigate();
-  const [file, selectFile] = useState() as HTMLInputElement | any;
+  const [file, selectFile] = useFileUpload() as HTMLInputElement | any;
   const image: any = file;
   const { register, formState: { errors }, setValue, handleSubmit } = useForm<IUserForm>({
     resolver: yupResolver(validationSchema)

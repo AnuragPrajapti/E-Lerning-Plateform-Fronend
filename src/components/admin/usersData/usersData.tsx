@@ -73,30 +73,6 @@ const columns = (clickHandler: any) => ([
       style={{ fontSize: "24px", color: "red", alignItems: "center", marginLeft: "25px" }} />,
     width: '100px',
   },
-  // {
-  //   name: 'Address',
-  //   selector: (row: any) => row.address,
-  //   // width: '100px',
-  //   sortable: true
-  // },
-  // {
-  //   name: 'City',
-  //   selector: (row: any) => row.city,
-  //   // width: '100px',
-  //   sortable: true
-  // },
-  // {
-  //   name: 'State',
-  //   selector: (row: any) => row.state,
-  //   sortable: true
-  //   // width: '100px'
-  // },
-  // {
-  //   name: 'Pincode',
-  //   selector: (row: any) => row.zip,
-  //   sortable: true
-  //   // width: '100px'
-  // },
 ]);
 
 const UsersData = () => {
