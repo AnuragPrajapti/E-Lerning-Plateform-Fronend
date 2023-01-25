@@ -5,11 +5,10 @@ import './adminProfile.scss'
 import { Col, Container, Row, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
-import { useFileUpload } from 'use-file-upload';
 
 const AdminProfile = () => {
   const dispatch = useAppDispatch();
-  const [file, selectFile] = useFileUpload() as HTMLInputElement | any
+  const [file, selectFile] = useState() as HTMLInputElement | any
   const adminInfo = useAppSelector(state => state?.authAdminReducer?.adminData?.data)
   const { setValue, register, handleSubmit, formState: { errors }, } = useForm();
   const image: any = file;
