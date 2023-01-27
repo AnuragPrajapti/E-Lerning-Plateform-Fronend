@@ -54,16 +54,29 @@
 
   .admin-details {
     .profile {
+      position: relative;
       display: flex;
       border-radius: 100%;
       width: 150px;
       height: 150px;
       margin: 0px auto;
+      input{
+        margin: 93px 0 0 0;
+      }
       img {
         border-radius: 100%;
         height: 150px;
         width: 150px;
         position: absolute;
+      }
+      .profile-edit-icon{
+        font-size: 24px;
+        color: green;
+        z-index: 9999;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        cursor: pointer;
       }
     }
 
@@ -95,6 +108,14 @@
       border-top-right-radius: 28px;
     }
   }
+  
+  @media screen and (max-width : 990px ) {
+    .admin-details{
+      .field-area{
+       margin-left: 20px;
+      }
+    }
+ }
 
   @media screen and (max-width : 768px ) {
      .admin-details{

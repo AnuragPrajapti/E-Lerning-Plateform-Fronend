@@ -5,18 +5,19 @@ import './adminProfile.scss'
 import { Col, Container, Row, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import { FaEdit } from "react-icons/fa";
 
 const AdminProfile = () => {
   const dispatch = useAppDispatch();
-  const [file, selectFile] = useState() as HTMLInputElement | any
   const adminInfo = useAppSelector(state => state?.authAdminReducer?.adminData?.data)
-  const { setValue, register, handleSubmit, formState: { errors }, } = useForm();
-  const image: any = file;
+  const { setValue, register, handleSubmit, formState: { errors }, } = useForm() as HTMLInputElement | any;
   const updateAdminProfileMessage = useAppSelector(state => state?.authAdminReducer?.updateProfileData)
   const getAdminMessage = useAppSelector(state => state?.authAdminReducer?.getAdminMessage)
   const getErrorAdminMessage = useAppSelector(state => state?.authAdminReducer?.getErrorAdminMessage)
   const [isLoading, setIsLoading] = useState(false);
+  const [editProfile, setEditProfile] = useState<boolean>(false);
 
+  const editProfileIcon = () => setEditProfile(true);
 
   useEffect(() => {
     dispatch(getAdminData());
@@ -55,9 +56,21 @@ const AdminProfile = () => {
   const onSubmit = (data: any) => {
     const id = adminInfo?._id;
     const formData: any = new FormData(document.getElementById('formData') as HTMLInputElement | any);
-    formData.append('image', image?.file || adminInfo?.image );
+    // const formData = new FormData()
+    // formData.append('image', data?.image[0]);
+    // formData.append('firstName', data?.firstName);
+    // formData.append('lastName', data?.lastName);
+    // formData.append('email', data?.email);
+    // formData.append('phone', data?.phone);
+    // formData.append('age', data?.age);
+    // formData.append('gender', data?.gender);
+    // formData.append('zip', data?.zip);
+    // formData.append('address', data?.address);
+    // formData.append('city', data?.city);
+    // formData.append('state', data?.state);
     const updateProfile = { id, formData }
     dispatch(getUpdateAdminProfile(updateProfile))
+    setEditProfile(false)
   }
 
   useEffect(() => {
@@ -115,9 +128,21 @@ const AdminProfile = () => {
                     <Row className='profileRow'>
                       <Col>
                         <div className='profile'>
-                          <img id='userProfile'
-                            src={image?.source || adminInfo?.image} alt=""
-                            onClick={() => selectFile()} />
+                          {
+                            editProfile === true ?
+                            <input
+                            type="file"
+                            name="image"
+                            {...register("image", {
+                              required: true,
+                            })}
+                            required
+                          /> 
+                             : <img id='userProfile'
+                              src={adminInfo?.image} alt=""
+                            />
+                          }
+                          <FaEdit className='profile-edit-icon' onClick={editProfileIcon} />
                         </div>
                       </Col>
                     </Row>
@@ -264,4 +289,4 @@ const AdminProfile = () => {
   )
 }
 
-export default AdminProfile
+export default AdminProfile 

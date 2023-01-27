@@ -7,7 +7,6 @@ import Birthday_Img from '../../../assets/socialMedia/gift.png'
 import adImg from '../../../assets/socialMedia/ad.png'
 
 export default function Rightbar({ profile }) {
-  console.log(111, ImgageData)
   const HomeRightbar = () => {
     return (
       <>
