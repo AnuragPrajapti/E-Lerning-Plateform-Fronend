@@ -7,7 +7,7 @@ export const getLoginAdmin = createAsyncThunk(
   async (data: any, thunkApi) => {
     const response = await axios.post(`${process.env.REACT_APP_API_KEY}/admin/login`, data);
     try {
-      if( response.status === 200) {
+      if (response.status === 200) {
         localStorage.setItem('authToken', JSON.stringify(response?.data?.token))
         return response.data;
       }
@@ -19,8 +19,8 @@ export const getLoginAdmin = createAsyncThunk(
 
 export const getAdminData: any = createAsyncThunk(
   "auth/getAdminDAta",
-  async (emty , { fulfillWithValue , rejectWithValue }) => {
-  const authToken: string | null = JSON.parse(localStorage.getItem('authToken')!)
+  async (emty, { fulfillWithValue, rejectWithValue }) => {
+    const authToken: string | null = JSON.parse(localStorage.getItem('authToken')!)
     const config = {
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -28,45 +28,47 @@ export const getAdminData: any = createAsyncThunk(
     }
     const response = await axios.get(`${process.env.REACT_APP_API_KEY}/adminProfile`, config);
     try {
-      if(response.status === 200){
+      if (response.status === 200) {
         return fulfillWithValue(response.data);
       }
     } catch (error: any) {
-      if(error.response.status === 404){
+      if (error.response.status === 404) {
         return rejectWithValue(error.response.data);
       } else {
-         return rejectWithValue(error)
+        return rejectWithValue(error)
       }
     }
   }
 )
 
-export const getAdminProfile : any = createAsyncThunk(
+export const getAdminProfile: any = createAsyncThunk(
   'auth/getAdminProfile',
-  async (thunkApi : any) => {
+  async (thunkApi: any) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_KEY}/getAdminProfile`);
       return response.data;
-    } catch (error : any) {
+    } catch (error: any) {
       return thunkApi.rejectWithValue(error.massege)
     }
   }
 )
 
-export const getUpdateAdminProfile : any = createAsyncThunk(
+export const getUpdateAdminProfile: any = createAsyncThunk(
   'auth/getUpdateAdminProfile',
-  async ( updateProfile : any ,  thunkApi: any) => {
+  async (updateProfile: any, thunkApi: any) => {
     const authToken: string | null = JSON.parse(localStorage.getItem('authToken')!)
     const config = {
       headers: {
         Authorization: `Bearer ${authToken}`,
+        'Content-Type': '',
       },
     }
-  const response = await axios.put(`${process.env.REACT_APP_API_KEY}/updateAdmin/${updateProfile?.id}`,updateProfile?.formData , config );
+    const response = await 
+    axios.put(`${process.env.REACT_APP_API_KEY}/updateAdmin/${updateProfile?.id}`, updateProfile?.formData, config);
     try {
-      if(response.status === 200){
-         getAdminData();
-         return response.data;
+      if (response.status === 200) {
+        getAdminData();
+        return response.data;
       }
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.massege)
@@ -76,14 +78,14 @@ export const getUpdateAdminProfile : any = createAsyncThunk(
 
 const initialState = {
   adminLogin: null,
-  adminData : [],
+  adminData: [],
   loading: false,
   error: false,
   getAdminProfileData: [],
-  updateProfileData : [],
-  message : '',
-  getAdminMessage : '',
-  getErrorAdminMessage : '',
+  updateProfileData: [],
+  message: '',
+  getAdminMessage: '',
+  getErrorAdminMessage: '',
 } as IAuthState;
 
 const authAdminReducer = createSlice({
@@ -126,14 +128,14 @@ const authAdminReducer = createSlice({
       .addCase(getAdminProfile.rejected, (state) => {
         state.error = true;
       })
-      builder
+    builder
       .addCase(getUpdateAdminProfile.pending, (state) => {
         state.loading = true;
       })
       .addCase(getUpdateAdminProfile.fulfilled, (state: any, action) => {
         state.loading = false;
         state.toast = true;
-        state.updateProfileData   =   "Admin Profile Update Successfully!";
+        state.updateProfileData = "Admin Profile Update Successfully!";
       })
       .addCase(getUpdateAdminProfile.rejected, (state) => {
         state.error = true;

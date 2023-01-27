@@ -52,7 +52,6 @@ const columns = (clickHandler: any) => ([
   {
     name: 'Gender',
     selector: (row: any) => row.gender,
-    // width: '100px',
     sortable: true
   },
   {
@@ -131,7 +130,6 @@ const UsersData = () => {
   }
 
   const handleChange = ({ selectedRows }: IRegister | any) => {
-    console.log(selectedRows);
   };
 
   setTimeout(() => {
