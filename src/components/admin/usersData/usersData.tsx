@@ -10,7 +10,8 @@ import { BiBlock } from "react-icons/bi";
 import { CgUnblock } from "react-icons/cg";
 import { IRegister } from '../../../interface/interface';
 import { AiFillDelete } from "react-icons/ai";
-
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const columns = (clickHandler: any) => ([
   {
@@ -68,7 +69,7 @@ const columns = (clickHandler: any) => ([
   },
   {
     name: 'Delete-User',
-    cell: (row: any) => <AiFillDelete onClick={() => clickHandler(row?._id)}
+    cell: (row: any) => <AiFillDelete onClick={() => clickHandler(row)}
       style={{ fontSize: "24px", color: "red", alignItems: "center", marginLeft: "25px" }} />,
     width: '100px',
   },
@@ -83,12 +84,13 @@ const UsersData = () => {
   const getDeleteUserMessage = useAppSelector(state => state?.authUserReducer?.getUserDeleteMessage)
   const [loader, setLoader] = useState(isLoading)
   const [filterData, setFilterData] = useState<IRegister | null>();
-  const [ isCheck , setIsCheck ] = useState<boolean>(false);
+  const [isCheck, setIsCheck] = useState<boolean>(false);
   const [inpval, setInpVal] = useState<any>({
     name: "",
     email: "",
     phone: "",
   })
+
   useEffect(() => {
     dispatch(getAllUsersData())
     if (getAllUsersMessage) {
@@ -100,21 +102,38 @@ const UsersData = () => {
   }, [getAllUsersMessage])
 
   const handleClick = (data: any) => {
-    dispatch(getDeleteUserProfile(data))
-    setIsCheck(true)
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: `Are you sure to delete ${data?.firstName}`,
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            dispatch(getDeleteUserProfile(data?._id))
+            setIsCheck(true)
+          }
+        },
+        {
+          label: 'No',
+          onClick: () => {
+            return null
+          } 
+        }
+      ]
+    });
   }
 
-  useEffect(()=>{
-    if (getDeleteUserMessage && isCheck ===true ) {
+  useEffect(() => {
+    if (getDeleteUserMessage && isCheck === true) {
       toast.error(getDeleteUserMessage, {
         position: 'top-center',
         autoClose: 1500,
       })
     }
-    setTimeout(()=>{
+    setTimeout(() => {
       dispatch(getAllUsersData())
-    },2000)
-  },[getDeleteUserMessage])
+    }, 2000)
+  }, [getDeleteUserMessage])
 
   const handelSearch = () => {
     const newDAta = allUsersData.filter((value: IRegister) => {
