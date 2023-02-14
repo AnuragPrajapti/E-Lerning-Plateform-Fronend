@@ -65,16 +65,16 @@ const PricingSection = () => {
               PricingData?.map((item, index) => {
                 return (
                   <>
-                    <Row className="cards-wrapper" key={index} >
+                    <Row className="cards-wrapper"  key={index} >
                       <Col>
-                        <div className="price-card1" >
+                        <div className="price-card1">
                           <div className={item.id === 0 ? 'basic-title1' : item.id === 1 ? 'basic-title2' : item.id === 2 ? 'basic-title3' : ""}>
                             <b>{item?.title}</b>
                             <p>{item?.subTitle}</p>
                           </div>
                           <p className="border-pera">{item?.description}</p>
                           <div className="content-title" >
-                            <ul>
+                            <ul key={index} >
                               <li><TiTick style={{ color: 'blue' }} />{item?.firstPoint}</li>
                               <li><TiTick style={{ color: 'blue' }} />{item?.secondPoint}</li>
                               <li><TiTick style={{ color: 'blue' }} />{item?.thirdPoint}</li>

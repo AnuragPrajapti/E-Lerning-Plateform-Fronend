@@ -16,6 +16,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Profile from './components/profile/Profile';
 import { useEffect } from 'react';
+import ShoppingCards from './components/shoppingCards/shoppingCards';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path='/user_details' element={<UserDetails />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/shop-now' element={ <ShoppingCards /> } />
         <Route path='admin_index' element={<PrivateRoutes isLogged={<AdminIndex />} />}   >
           <Route index element={<UsersData />}  />
           <Route path='admin-profile' element={<AdminProfile />} />

@@ -46,11 +46,10 @@ const CommonNavbar = () => {
                     About_Page
                   </NavLink>
                   <NavLink
-                    onClick={() => handleNavigate('slider')}
                     className={`${active === 'slider' && 'active'}`}
-                    to="/"
+                    to="/shop-now"
                   >
-                    Range_Page
+                   Shop-Now
                   </NavLink>
                   <NavLink
                     onClick={() => handleNavigate('profile')}

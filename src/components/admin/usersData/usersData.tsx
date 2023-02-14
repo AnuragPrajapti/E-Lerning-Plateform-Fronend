@@ -83,6 +83,7 @@ const UsersData = () => {
   const getDeleteUserMessage = useAppSelector(state => state?.authUserReducer?.getUserDeleteMessage)
   const [loader, setLoader] = useState(isLoading)
   const [filterData, setFilterData] = useState<IRegister | null>();
+  const [ isCheck , setIsCheck ] = useState<boolean>(false);
   const [inpval, setInpVal] = useState<any>({
     name: "",
     email: "",
@@ -100,8 +101,12 @@ const UsersData = () => {
 
   const handleClick = (data: any) => {
     dispatch(getDeleteUserProfile(data))
-    if (getDeleteUserMessage) {
-      toast.success(getDeleteUserMessage, {
+    setIsCheck(true)
+  }
+
+  useEffect(()=>{
+    if (getDeleteUserMessage && isCheck ===true ) {
+      toast.error(getDeleteUserMessage, {
         position: 'top-center',
         autoClose: 1500,
       })
@@ -109,7 +114,7 @@ const UsersData = () => {
     setTimeout(()=>{
       dispatch(getAllUsersData())
     },2000)
-  }
+  },[getDeleteUserMessage])
 
   const handelSearch = () => {
     const newDAta = allUsersData.filter((value: IRegister) => {
